@@ -19,6 +19,8 @@
 {
     if (!_downBtn) {
         _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_downBtn setTitle:@"下载" forState:UIControlStateNormal];
+        [_downBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _downBtn;
 }
@@ -26,6 +28,8 @@
 {
     if (!_readBtn) {
         _readBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_readBtn setTitle:@"预览" forState:UIControlStateNormal];
+        [_readBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _readBtn;
 }

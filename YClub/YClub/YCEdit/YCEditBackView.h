@@ -16,4 +16,6 @@
 
 @interface YCEditBackView : UIView
 
+@property (nonatomic, assign) id<YCEditBackViewDelegate> delegate;
+
 @end

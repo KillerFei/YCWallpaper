@@ -11,7 +11,7 @@
 #import "YCEditBackView.h"
 #import "YCEditDownView.h"
 
-@interface YCEditCollectionController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface YCEditCollectionController ()<UICollectionViewDelegate, UICollectionViewDataSource, YCEditBackViewDelegate>
 
 @property (nonatomic, assign) BOOL show;
 @property (nonatomic, strong) YCEditBackView *backView;
@@ -60,6 +60,7 @@
     _show = YES;
     _backView = [[YCEditBackView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 64)];
     _downView = [[YCEditDownView alloc] initWithFrame:CGRectMake(0, KSCREEN_HEIGHT-64, KSCREEN_WIDTH, 64)];
+    _backView.delegate = self;
     [self.view addSubview:_backView];
     [self.view addSubview:_downView];
 }
@@ -166,5 +167,10 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+#pragma mark - YCEditBackViewDelegate
+- (void)clickBackBtn
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

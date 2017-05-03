@@ -19,6 +19,7 @@
 {
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_backBtn addTarget:self action:@selector(backBtnAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backBtn;
 }
@@ -53,5 +54,12 @@
         make.top.bottom.right.equalTo(self);
         make.width.mas_equalTo(@100);
     }];
+}
+#pragma mark - backBtnAction
+- (void)backBtnAction
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickBackBtn)]) {
+        [_delegate clickBackBtn];
+    }
 }
 @end
