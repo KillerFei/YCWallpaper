@@ -39,5 +39,12 @@
     }
     [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.img]];
 }
-
+- (UIImage *)showImg
+{
+    if (!_imageView.image) {
+        
+        
+    }
+    return _imageView.image;
+}
 @end

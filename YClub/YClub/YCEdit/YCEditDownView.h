@@ -16,4 +16,6 @@
 
 @interface YCEditDownView : UIView
 
+@property (nonatomic, assign) id<YCEditDownViewDelegate>delegate;
+
 @end

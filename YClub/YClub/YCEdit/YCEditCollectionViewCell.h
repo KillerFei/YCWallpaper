@@ -11,4 +11,5 @@
 @interface YCEditCollectionViewCell : UICollectionViewCell
 
 - (void)setModel:(YCBaseModel *)model;
+- (UIImage *)showImg;
 @end

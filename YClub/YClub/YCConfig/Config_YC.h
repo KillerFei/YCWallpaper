@@ -32,8 +32,8 @@
 #define YC_Base_TitleColor         RGB(106, 106, 106)
 #define YC_Base_TitleFont          SYSTEM_FONT(15)
 
-#define NF_Base_ContentColor       RGB(149, 149, 149)
-#define NF_Base_ContentFont        SYSTEM_FONT(13)
+#define YC_Base_ContentColor       RGB(149, 149, 149)
+#define YC_Base_ContentFont        SYSTEM_FONT(13)
 
 //#define YC_Base_BgGrayColor        RGB(241, 242, 243)
 #define YC_Base_BgGrayColor        RGB(239, 239, 239)
@@ -56,7 +56,7 @@
 #define DT_Base_LineColor          RGB(225, 225, 225)
 //#define DT_Base_EdgeColor          RGB(254, 203, 47)
 #define DT_Base_EdgeColor          RGB(255, 204, 0)
-#define DT_Base_GrayEdgeColor      RGB(179, 179, 179)
+#define YC_Base_GrayEdgeColor      RGB(179, 179, 179)
 //----------------------设备类--------------------------
 //获取屏幕 宽度、高度
 #define KSCREEN_WIDTH              ([UIScreen mainScreen].bounds.size.width)

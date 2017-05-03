@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIButton *backBtn;
 @property (nonatomic, strong) UIButton *loveBtn;
+@property (nonatomic, strong) UIButton *shareBtn;
 @end
 
 @implementation YCEditBackView
@@ -19,7 +20,10 @@
 {
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *backImg = [UIImage imageNamed:@"yc_img_back"];
+        [_backBtn setImage:backImg forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(backBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        _backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 40);
     }
     return _backBtn;
 }
@@ -27,8 +31,18 @@
 {
     if (!_loveBtn) {
         _loveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_normal"] forState:UIControlStateNormal];
+        [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_selete"] forState:UIControlStateSelected];
     }
     return _loveBtn;
+}
+- (UIButton *)shareBtn
+{
+    if (!_shareBtn) {
+        _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_shareBtn setImage:[UIImage imageNamed:@"yc_img_share"] forState:UIControlStateNormal];
+    }
+    return _shareBtn;
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -38,6 +52,7 @@
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
         [self addSubview:self.backBtn];
         [self addSubview:self.loveBtn];
+        [self addSubview:self.shareBtn];
     }
     return self;
 }
