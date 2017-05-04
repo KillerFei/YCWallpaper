@@ -99,6 +99,11 @@
 		FBEF5FFE1EBA111300C5D983 /* yc_img_look@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEF5FF21EBA111300C5D983 /* yc_img_look@3x.png */; };
 		FBEF5FFF1EBA111300C5D983 /* yc_img_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEF5FF31EBA111300C5D983 /* yc_img_share@2x.png */; };
 		FBEF60001EBA111300C5D983 /* yc_img_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEF5FF41EBA111300C5D983 /* yc_img_share@3x.png */; };
+		FBF09A521EBB604B0001EBFD /* yc_home_480h.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF09A4E1EBB604B0001EBFD /* yc_home_480h.png */; };
+		FBF09A531EBB604B0001EBFD /* yc_home_568h.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF09A4F1EBB604B0001EBFD /* yc_home_568h.png */; };
+		FBF09A541EBB604B0001EBFD /* yc_home_667h.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF09A501EBB604B0001EBFD /* yc_home_667h.png */; };
+		FBF09A551EBB604B0001EBFD /* yc_home_736h.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF09A511EBB604B0001EBFD /* yc_home_736h.png */; };
+		FBF09A581EBB79BF0001EBFD /* YCLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF09A571EBB79BF0001EBFD /* YCLockView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +250,12 @@
 		FBEF5FF21EBA111300C5D983 /* yc_img_look@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_img_look@3x.png"; sourceTree = "<group>"; };
 		FBEF5FF31EBA111300C5D983 /* yc_img_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_img_share@2x.png"; sourceTree = "<group>"; };
 		FBEF5FF41EBA111300C5D983 /* yc_img_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_img_share@3x.png"; sourceTree = "<group>"; };
+		FBF09A4E1EBB604B0001EBFD /* yc_home_480h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_home_480h.png; sourceTree = "<group>"; };
+		FBF09A4F1EBB604B0001EBFD /* yc_home_568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_home_568h.png; sourceTree = "<group>"; };
+		FBF09A501EBB604B0001EBFD /* yc_home_667h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_home_667h.png; sourceTree = "<group>"; };
+		FBF09A511EBB604B0001EBFD /* yc_home_736h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_home_736h.png; sourceTree = "<group>"; };
+		FBF09A561EBB79BF0001EBFD /* YCLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLockView.h; sourceTree = "<group>"; };
+		FBF09A571EBB79BF0001EBFD /* YCLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLockView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +393,10 @@
 		FB341E571EB394BC008A4199 /* YCResource */ = {
 			isa = PBXGroup;
 			children = (
+				FBF09A4E1EBB604B0001EBFD /* yc_home_480h.png */,
+				FBF09A4F1EBB604B0001EBFD /* yc_home_568h.png */,
+				FBF09A501EBB604B0001EBFD /* yc_home_667h.png */,
+				FBF09A511EBB604B0001EBFD /* yc_home_736h.png */,
 				FBEF5FE91EBA111300C5D983 /* yc_img_back@2x.png */,
 				FBEF5FEA1EBA111300C5D983 /* yc_img_back@3x.png */,
 				FBEF5FEB1EBA111300C5D983 /* yc_img_collect_normal@2x.png */,
@@ -532,6 +547,8 @@
 				FBE842621EB774170073E1E2 /* YCEditDownView.m */,
 				FB6E0B0D1EBADD3E00B99AF0 /* YCLookPopView.h */,
 				FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */,
+				FBF09A561EBB79BF0001EBFD /* YCLockView.h */,
+				FBF09A571EBB79BF0001EBFD /* YCLockView.m */,
 			);
 			path = YCEdit;
 			sourceTree = "<group>";
@@ -610,7 +627,7 @@
 				TargetAttributes = {
 					FB341E181EB393EC008A4199 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XR62VH56F6;
+						DevelopmentTeam = 4A6RCSK759;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -644,10 +661,12 @@
 				FBEF5FF51EBA111300C5D983 /* yc_img_back@2x.png in Resources */,
 				FBED03701EB506D300BEEA75 /* yc_my_tabbar_normal@2x.png in Resources */,
 				FBED03931EB514FF00BEEA75 /* loading14_105x18_@2x.png in Resources */,
+				FBF09A531EBB604B0001EBFD /* yc_home_568h.png in Resources */,
 				FBED03AD1EB5168F00BEEA75 /* loading9_105x18_@2x.png in Resources */,
 				FBEF5FFF1EBA111300C5D983 /* yc_img_share@2x.png in Resources */,
 				FB341E2C1EB393EC008A4199 /* LaunchScreen.storyboard in Resources */,
 				FBED03921EB514FF00BEEA75 /* loading13_105x18_@2x.png in Resources */,
+				FBF09A521EBB604B0001EBFD /* yc_home_480h.png in Resources */,
 				FBEF5FFC1EBA111300C5D983 /* yc_img_download@3x.png in Resources */,
 				FBEF5FF91EBA111300C5D983 /* yc_img_collect_selete@2x.png in Resources */,
 				FBED039A1EB514FF00BEEA75 /* loading21_105x18_@2x.png in Resources */,
@@ -669,9 +688,11 @@
 				FB341E291EB393EC008A4199 /* Assets.xcassets in Resources */,
 				FBED03911EB514FF00BEEA75 /* loading12_105x18_@2x.png in Resources */,
 				FBED036A1EB5042500BEEA75 /* yc_main_tabbar_normal@2x.png in Resources */,
+				FBF09A541EBB604B0001EBFD /* yc_home_667h.png in Resources */,
 				FBEF5FF61EBA111300C5D983 /* yc_img_back@3x.png in Resources */,
 				FBED03A61EB5168F00BEEA75 /* loading2_105x18_@2x.png in Resources */,
 				FBEF5FF81EBA111300C5D983 /* yc_img_collect_normal@3x.png in Resources */,
+				FBF09A551EBB604B0001EBFD /* yc_home_736h.png in Resources */,
 				FBEEEF581EB63A3700DE5471 /* yc_no_result@2x.png in Resources */,
 				FBED03711EB506D300BEEA75 /* yc_my_tabbar_selete@2x.png in Resources */,
 				FBED03991EB514FF00BEEA75 /* loading20_105x18_@2x.png in Resources */,
@@ -758,6 +779,7 @@
 				FBE842631EB774170073E1E2 /* YCEditDownView.m in Sources */,
 				FB341E711EB3AB92008A4199 /* NSURL+YC_EX.m in Sources */,
 				FBEEEFE71EB671F900DE5471 /* UINavigationController+WXSTransition.m in Sources */,
+				FBF09A581EBB79BF0001EBFD /* YCLockView.m in Sources */,
 				FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */,
 				FBE8425D1EB742EC0073E1E2 /* YCEditCollectionViewCell.m in Sources */,
 				FBEEEFF01EB671F900DE5471 /* WXSTransitionManager+PageAnimation.m in Sources */,
@@ -900,12 +922,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XR62VH56F6;
+				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -916,12 +938,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XR62VH56F6;
+				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

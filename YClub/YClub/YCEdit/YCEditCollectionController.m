@@ -11,17 +11,20 @@
 #import "YCEditCollectionViewCell.h"
 #import "YCEditBackView.h"
 #import "YCEditDownView.h"
+#import "YCLockView.h"
 #import "DXPopover.h"
 
 @interface YCEditCollectionController ()<UICollectionViewDelegate, UICollectionViewDataSource, YCEditBackViewDelegate, YCEditDownViewDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, assign) BOOL show;
+@property (nonatomic, assign) BOOL bShow;
+@property (nonatomic, assign) BOOL bRead;
 @property (nonatomic, strong) YCBaseModel    *currentModel;
 @property (nonatomic, strong) YCEditBackView *backView;
 @property (nonatomic, strong) YCEditDownView *downView;
 @property (nonatomic, strong) DXPopover      *popover;
 @property (nonatomic, strong) UITableView    *popTableView;
-@property (nonatomic, strong) UIImageView    *
+@property (nonatomic, strong) UIImageView    *homeView;
+@property (nonatomic, strong) YCLockView     *lockView;
 @end
 
 @implementation YCEditCollectionController
@@ -32,8 +35,10 @@
     if (!_popover) {
         _popover = [DXPopover new];
         _popover.backgroundColor = [UIColor clearColor];
+        _popover.maskType = DXPopoverMaskTypeNone;
+        _popover.animationIn  = 0.3;
+        _popover.animationOut = 0.2;
         _popover.contentInset = UIEdgeInsetsZero;
-        _popover.maskType = DXPopoverMaskTypeBlack;
     }
     return _popover;
 }
@@ -57,6 +62,33 @@
         }
     }
     return _popTableView;
+}
+- (UIImageView *)homeView
+{
+    if (!_homeView) {
+        
+        UIImage *image = nil;
+        if (IS_IPHONE_4_OR_LESS) {
+            image = [UIImage imageNamed:@"yc_home_480h"];
+        }else if (IS_IPHONE_5) {
+            image = [UIImage imageNamed:@"yc_home_568h"];
+        }else if(IS_IPHONE_6) {
+            image = [UIImage imageNamed:@"yc_home_667h"];
+        } else {
+            image = [UIImage imageNamed:@"yc_home_736h"];
+        }
+        _homeView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _homeView.image = image;
+    }
+    return _homeView;
+}
+- (YCLockView *)lockView
+{
+    if (!_lockView) {
+        _lockView = [[YCLockView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _lockView.layer.zPosition = 1;
+    }
+    return _lockView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -102,7 +134,8 @@
 }
 - (void)setUpMenuView
 {
-    _show = YES;
+    _bShow = YES;
+    _bRead = NO;
     _backView = [[YCEditBackView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 64)];
     _downView = [[YCEditDownView alloc] initWithFrame:CGRectMake(0, KSCREEN_HEIGHT-49, KSCREEN_WIDTH, 49)];
     _backView.delegate = self;
@@ -112,7 +145,7 @@
 }
 - (void)menuViewAnima
 {
-    if (_show) {
+    if (_bShow) {
         [self hidenMenuView];
     } else {
         [self showMenuView];
@@ -123,7 +156,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         _backView.top = 0;
         _downView.bottom = KSCREEN_HEIGHT;
-        _show = YES;
+        _bShow = YES;
     }];
 }
 - (void)hidenMenuView
@@ -131,7 +164,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         _backView.top = -64;
         _downView.bottom = KSCREEN_HEIGHT+49;
-        _show = NO;
+        _bShow = NO;
     }];
 }
 - (void)loadMoreData
@@ -196,7 +229,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    [self menuViewAnima];
+    if (_bRead) {
+        _bRead = NO;
+        [self.homeView removeFromSuperview];
+        [self.lockView removeFromSuperview];
+        [self showMenuView];
+    } else {
+        [self menuViewAnima];
+    }
 }
 #pragma mark - table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -232,6 +272,33 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.popover dismiss];
+    [self hidenMenuView];
+    switch (indexPath.row) {
+        case 0: {
+            _bRead = YES;
+            self.homeView.left = KSCREEN_HEIGHT;
+            [self.view addSubview:self.homeView];
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.homeView.left = 0;
+            } completion:nil];
+          
+        }
+            break;
+        case 1: {
+            _bRead = YES;
+            self.lockView.left = KSCREEN_HEIGHT;
+            [self.view insertSubview:self.lockView belowSubview:self.myCollectionView];
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.lockView.left = 0;
+            } completion:nil];
+            
+        }
+            break;
+        default:
+            _bRead = YES;
+            [self.view addSubview:self.homeView];
+            break;
+    }
 }
 
 #pragma mark - scrollView
@@ -341,5 +408,10 @@
             [[UIApplication sharedApplication]openURL:url];
         }
     }
+}
+#pragma mark - 状态栏
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 @end

@@ -41,4 +41,9 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+#pragma mark - 状态栏
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
 @end

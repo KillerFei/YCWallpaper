@@ -174,7 +174,7 @@
             break;
         case DXPopoverMaskTypeNone: {
             maskColor = [UIColor clearColor];
-            self.blackOverlay.userInteractionEnabled = NO;
+            self.blackOverlay.userInteractionEnabled = YES;
         } break;
         default:
             break;

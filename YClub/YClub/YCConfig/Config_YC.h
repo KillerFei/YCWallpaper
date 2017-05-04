@@ -62,18 +62,17 @@
 #define KSCREEN_WIDTH              ([UIScreen mainScreen].bounds.size.width)
 #define KSCREEN_HEIGHT             ([UIScreen mainScreen].bounds.size.height)
 
-// iOS系统版本
-#define IOSBaseVersion9     9.0
-#define IOSBaseVersion8     8.0
-#define IOSBaseVersion7     7.0
+#define IS_IPAD         (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
-#define IOSCurrentBaseVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
+#define SCREEN_MAX_LENGTH       (MAX(KSCREEN_WIDTH, KSCREEN_HEIGHT))
 
-#define iOS9Later (IOSCurrentBaseVersion >= IOSBaseVersion9)
-#define iOS8Later (IOSCurrentBaseVersion >= IOSBaseVersion8)
-#define iOS7Later (IOSCurrentBaseVersion >= IOSBaseVersion7)
+#define IS_IPHONE_4_OR_LESS     (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5             (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6             (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P            (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
-#define IPAD_DEVICE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 
 //----------------------－引用－----------------------------
 //Block
