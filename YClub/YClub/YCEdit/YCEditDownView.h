@@ -11,7 +11,7 @@
 @protocol YCEditDownViewDelegate<NSObject>
 
 - (void)clickDownBtn;
-- (void)clickReadBtn;
+- (void)clickReadBtn:(UIButton *)sender;
 @end
 
 @interface YCEditDownView : UIView

@@ -12,6 +12,7 @@
 @interface YCHudManager : NSObject
 
 + (void)showHudInView:(UIView *)view;
++ (void)showHudMessage:(NSString *)message InView:(UIView *)view;
 + (void)showMessage:(NSString *)message InView:(UIView *)view;
 
 + (void)hideHudInView:(UIView *)view;

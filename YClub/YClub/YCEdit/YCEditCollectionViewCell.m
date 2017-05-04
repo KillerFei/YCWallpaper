@@ -11,6 +11,7 @@
 @interface YCEditCollectionViewCell ()
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) YCBaseModel *model;
 @end
 
 @implementation YCEditCollectionViewCell
@@ -37,14 +38,11 @@
     if (!model) {
         return;
     }
+    _model = model;
     [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.img]];
 }
 - (UIImage *)showImg
 {
-    if (!_imageView.image) {
-        
-        
-    }
     return _imageView.image;
 }
 @end

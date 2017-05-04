@@ -27,6 +27,21 @@
     [view addSubview:hud];
     [hud showAnimated:YES];
 }
++ (void)showHudMessage:(NSString *)message InView:(UIView *)view
+{
+    if (!view) {
+        return;
+    }
+    MBProgressHUD *oldHud = [MBProgressHUD HUDForView:view];
+    if (oldHud) {
+        return;
+    }
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
+    hud.bezelView.color = [UIColor blackColor];
+    hud.mode = MBProgressHUDModeText;
+    [view addSubview:hud];
+    [hud showAnimated:YES];
+}
 + (void)showMessage:(NSString *)message InView:(UIView *)view
 {
     if (!view) {
@@ -40,7 +55,7 @@
     hud.label.textColor        = [UIColor whiteColor];
     [view addSubview:hud];
     [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:1.5];
+    [hud hideAnimated:YES afterDelay:2];
 }
 + (void)hideHudInView:(UIView *)view
 {

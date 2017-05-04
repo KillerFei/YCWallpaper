@@ -37,7 +37,7 @@
         [_readBtn setTitle:@"预览" forState:UIControlStateNormal];
         [_readBtn setImage:[UIImage imageNamed:@"yc_img_look"] forState:UIControlStateNormal];
         [_readBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_readBtn addTarget:self action:@selector(readBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        [_readBtn addTarget:self action:@selector(readBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         _readBtn.titleLabel.font = YC_Base_TitleFont;
         _readBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -2, 0, 2);
         _readBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, -2);
@@ -92,10 +92,10 @@
         [_delegate clickDownBtn];
     }
 }
-- (void)readBtnAction
+- (void)readBtnAction:(UIButton *)sender
 {
-    if (!_delegate && [_delegate respondsToSelector:@selector(clickReadBtn)]) {
-        [_delegate clickReadBtn];
+    if (_delegate && [_delegate respondsToSelector:@selector(clickReadBtn:)]) {
+        [_delegate clickReadBtn:sender];
     }
 }
 
