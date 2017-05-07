@@ -11,9 +11,7 @@
 @interface YCBaseNavigationController ()
 
 @end
-
 @implementation YCBaseNavigationController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:YC_Nav_TitleColor, NSFontAttributeName:YC_Nav_TitleFont}];

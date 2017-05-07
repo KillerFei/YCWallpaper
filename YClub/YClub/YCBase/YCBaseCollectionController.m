@@ -64,27 +64,18 @@
 #pragma mark --- Public
 - (void)addRefreshHeader
 {
-//    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//    _myCollectionView.mj_header = header;
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     header.lastUpdatedTimeLabel.hidden = YES;
-    
-    // Hide the status
     header.stateLabel.hidden = YES;
-    [header setImages:@[[UIImage imageNamed:@"loading11_105x18_"]] forState:MJRefreshStateIdle];
-    NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (int i = 11; i < 22; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"loading%d_105x18_",i];
+    [header setImages:@[[UIImage imageNamed:@"yc_loading_01"]] forState:MJRefreshStateIdle];
+    NSMutableArray *gifImgs = [[NSMutableArray alloc] init];
+    for (int i = 1; i < 22; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"yc_loading_%02d",i];
         UIImage *image = [UIImage imageNamed:imageName];
-        [images addObject:image];
+        [gifImgs addObject:image];
     }
-    for (int i = 1; i < 11; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"loading%d_105x18_",i];
-        UIImage *image = [UIImage imageNamed:imageName];
-        [images addObject:image];
-    }
-    [header setImages:images forState:MJRefreshStatePulling];
-    [header setImages:images forState:MJRefreshStateRefreshing];
+    [header setImages:gifImgs forState:MJRefreshStatePulling];
+    [header setImages:gifImgs forState:MJRefreshStateRefreshing];
     _myCollectionView.mj_header = header;
 }
 - (void)addLoadMoreFooter

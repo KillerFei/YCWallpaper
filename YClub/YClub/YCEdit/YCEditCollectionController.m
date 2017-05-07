@@ -101,6 +101,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
 }
 - (void)setUpLayOut
 {
@@ -272,9 +279,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.popover dismiss];
-    [self hidenMenuView];
     switch (indexPath.row) {
         case 0: {
+            [self hidenMenuView];
             _bRead = YES;
             self.homeView.left = KSCREEN_HEIGHT;
             [self.view addSubview:self.homeView];
@@ -285,18 +292,17 @@
         }
             break;
         case 1: {
+            [self hidenMenuView];
             _bRead = YES;
             self.lockView.left = KSCREEN_HEIGHT;
             [self.view insertSubview:self.lockView belowSubview:self.myCollectionView];
             [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.lockView.left = 0;
             } completion:nil];
-            
         }
             break;
         default:
-            _bRead = YES;
-            [self.view addSubview:self.homeView];
+            [self.popover dismiss];
             break;
     }
 }
@@ -408,10 +414,5 @@
             [[UIApplication sharedApplication]openURL:url];
         }
     }
-}
-#pragma mark - 状态栏
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 @end

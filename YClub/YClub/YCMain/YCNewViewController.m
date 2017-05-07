@@ -25,7 +25,6 @@
     }
     [self registerCell];
     [self requestData];
-    if (!kStringIsEmpty(_tId)) return;
     [self addRefreshHeader];
 }
 - (void)requestData
@@ -33,7 +32,9 @@
     if (kStringIsEmpty(_tId)) {
         [self requestNewListData];
     } else {
-        [YCHudManager showHudInView:self.view];
+        if (!self.bFirstLoad) {
+            [YCHudManager showHudInView:self.view];
+        }
         [self requestTypeListData];
     }
 }
@@ -67,9 +68,6 @@
             [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            if (!kStringIsEmpty(_tId)) {
-                return;
-            }
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
         }
     }];
@@ -77,7 +75,7 @@
 - (void)requestTypeListData
 {
     [YCNetManager getCategoryListWithTId:_tId skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        if (!kStringIsEmpty(_tId)) {
+        if (!self.bFirstLoad) {
             [YCHudManager hideHudInView:self.view];
         } else {
              [self endRefresh];
@@ -85,12 +83,9 @@
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-            if (kStringIsEmpty(_tId)) {
-                [self addLoadMoreFooter];
-            }
+            [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            if (!kStringIsEmpty(_tId)) return;
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
         }
     }];
@@ -108,7 +103,6 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!kStringIsEmpty(_tId)) return;
     if (indexPath.item>self.dataSource.count-12 && self.scrollBottom)
     {
         [self loadMoreData];
@@ -133,14 +127,12 @@
 #pragma mark - scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!kStringIsEmpty(_tId)) return;
     if (self.lastOffSetY<scrollView.contentOffset.y) {
         self.scrollBottom = YES;
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    if (!kStringIsEmpty(_tId)) return;
     self.lastOffSetY = scrollView.contentOffset.y;
 }
 - (void)didReceiveMemoryWarning {
