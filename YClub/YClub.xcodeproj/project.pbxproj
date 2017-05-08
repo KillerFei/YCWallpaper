@@ -104,6 +104,9 @@
 		FBEF5FFF1EBA111300C5D983 /* yc_img_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEF5FF31EBA111300C5D983 /* yc_img_share@2x.png */; };
 		FBEF60001EBA111300C5D983 /* yc_img_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEF5FF41EBA111300C5D983 /* yc_img_share@3x.png */; };
 		FBF09A581EBB79BF0001EBFD /* YCLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF09A571EBB79BF0001EBFD /* YCLockView.m */; };
+		FBF2F26D1EC090EF008C1F6B /* yc_nav_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2F26B1EC090EF008C1F6B /* yc_nav_search@2x.png */; };
+		FBF2F26E1EC090EF008C1F6B /* yc_nav_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2F26C1EC090EF008C1F6B /* yc_nav_search@3x.png */; };
+		FBF2F2711EC0B43B008C1F6B /* YCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF2F2701EC0B43B008C1F6B /* YCSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -257,6 +260,10 @@
 		FBEF5FF41EBA111300C5D983 /* yc_img_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_img_share@3x.png"; sourceTree = "<group>"; };
 		FBF09A561EBB79BF0001EBFD /* YCLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLockView.h; sourceTree = "<group>"; };
 		FBF09A571EBB79BF0001EBFD /* YCLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLockView.m; sourceTree = "<group>"; };
+		FBF2F26B1EC090EF008C1F6B /* yc_nav_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yc_nav_search@2x.png"; path = "YCLoading/yc_nav_search@2x.png"; sourceTree = "<group>"; };
+		FBF2F26C1EC090EF008C1F6B /* yc_nav_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yc_nav_search@3x.png"; path = "YCLoading/yc_nav_search@3x.png"; sourceTree = "<group>"; };
+		FBF2F26F1EC0B43B008C1F6B /* YCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSearchViewController.h; sourceTree = "<group>"; };
+		FBF2F2701EC0B43B008C1F6B /* YCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				FBED03841EB513E500BEEA75 /* YCLoading */,
+				FBF2F26B1EC090EF008C1F6B /* yc_nav_search@2x.png */,
+				FBF2F26C1EC090EF008C1F6B /* yc_nav_search@3x.png */,
 				FBECD1461EBF0F7F0060F2A2 /* yc_home_480h@2x.png */,
 				FBECD1481EBF0FA50060F2A2 /* yc_home_568h@2x.png */,
 				FBECD1491EBF0FA50060F2A2 /* yc_home_667h@2x.png */,
@@ -504,6 +513,8 @@
 				FBED03321EB45AFC00BEEA75 /* YCTypeViewController.m */,
 				FBED03371EB45F8100BEEA75 /* YCTypeCollectionViewCell.h */,
 				FBED03381EB45F8100BEEA75 /* YCTypeCollectionViewCell.m */,
+				FBF2F26F1EC0B43B008C1F6B /* YCSearchViewController.h */,
+				FBF2F2701EC0B43B008C1F6B /* YCSearchViewController.m */,
 			);
 			path = YCType;
 			sourceTree = "<group>";
@@ -660,6 +671,7 @@
 				FBED03801EB50C5E00BEEA75 /* yc_my_tabbar_normal@3x.png in Resources */,
 				FBED03831EB50CDF00BEEA75 /* yc_my_tabbar_selete@3x.png in Resources */,
 				FBED036C1EB5042500BEEA75 /* yc_main_tabbar_selete@2x.png in Resources */,
+				FBF2F26D1EC090EF008C1F6B /* yc_nav_search@2x.png in Resources */,
 				FBEF5FF51EBA111300C5D983 /* yc_img_back@2x.png in Resources */,
 				FBED03701EB506D300BEEA75 /* yc_my_tabbar_normal@2x.png in Resources */,
 				FBED03931EB514FF00BEEA75 /* yc_loading_04@2x.png in Resources */,
@@ -695,6 +707,7 @@
 				FBED03A61EB5168F00BEEA75 /* yc_loading_13@2x.png in Resources */,
 				FBEF5FF81EBA111300C5D983 /* yc_img_collect_normal@3x.png in Resources */,
 				FBEEEF581EB63A3700DE5471 /* yc_no_result@2x.png in Resources */,
+				FBF2F26E1EC090EF008C1F6B /* yc_nav_search@3x.png in Resources */,
 				FBED03711EB506D300BEEA75 /* yc_my_tabbar_selete@2x.png in Resources */,
 				FBED03991EB514FF00BEEA75 /* yc_loading_10@2x.png in Resources */,
 				FBECD14C1EBF0FA50060F2A2 /* yc_home_667h@2x.png in Resources */,
@@ -804,6 +817,7 @@
 				FBEEEFE91EB671F900DE5471 /* UIViewController+WXSTransitionProperty.m in Sources */,
 				FB341EC51EB3B995008A4199 /* YCBaseCollectionViewCell.m in Sources */,
 				FBEEEFF41EB671F900DE5471 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
+				FBF2F2711EC0B43B008C1F6B /* YCSearchViewController.m in Sources */,
 				FB341EB01EB3AFE8008A4199 /* YCMainViewController.m in Sources */,
 				FBEEEFEA1EB671F900DE5471 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				FBEEEFF51EB671F900DE5471 /* WXSTransitionManager.m in Sources */,

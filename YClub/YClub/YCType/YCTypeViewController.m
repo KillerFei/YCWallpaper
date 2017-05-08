@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpTitleView];
     [self setUpLayOut];
     [self setUpCollectionView];
     [self registerCell];
@@ -30,6 +31,31 @@
     }
     self.bFirstLoad = YES;
 }
+#pragma mark - setUpTitleView
+- (void)setUpTitleView
+{
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH-30, 35)];
+    titleView.text = @"         输入关键字";
+    titleView.font = YC_Nav_TitleFont;
+    titleView.layer.cornerRadius = 5;
+    titleView.layer.masksToBounds = YES;
+    titleView.textColor = YC_Base_ContentColor;
+    titleView.backgroundColor = YC_Base_LineColor;
+    UIImageView *searchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yc_nav_search"]];
+    searchView.center = CGPointMake(17, 17.5);
+    [titleView addSubview:searchView];
+    self.navigationItem.titleView = titleView;
+    
+    titleView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [titleView addGestureRecognizer:tap];
+}
+#pragma mark - tapAction
+- (void)tapAction
+{
+    
+}
+#pragma mark - setUpView
 - (void)setUpLayOut
 {
     self.layOut = [[UICollectionViewFlowLayout alloc] init];
@@ -52,6 +78,7 @@
 {
     [self.myCollectionView registerClass:[YCTypeCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
 }
+#pragma mark - request data
 - (void)requestData
 {
     [YCHudManager showLoadingInView:self.view];
@@ -66,7 +93,7 @@
         }
     }];
 }
-#pragma mark - collection
+#pragma mark - collectionView
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataSource.count;

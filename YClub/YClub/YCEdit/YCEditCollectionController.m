@@ -107,7 +107,6 @@
 {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
 }
 - (void)setUpLayOut
 {
@@ -196,7 +195,7 @@
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-            [self addLoadMoreFooter];
+//            [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
@@ -210,7 +209,7 @@
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-            [self addLoadMoreFooter];
+//            [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];

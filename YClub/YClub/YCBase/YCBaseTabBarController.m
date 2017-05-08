@@ -31,7 +31,6 @@
     
     YCTypeViewController *typeVC = [[YCTypeViewController alloc] init];
     YCBaseNavigationController *typeNav = [[YCBaseNavigationController alloc] initWithRootViewController:typeVC];
-    typeVC.title = @"分类";
     
     YCBaseViewController *thirdVC = [[YCBaseViewController alloc] init];
     YCBaseNavigationController *thirdNav = [[YCBaseNavigationController alloc] initWithRootViewController:thirdVC];
@@ -47,6 +46,7 @@
     UITabBarItem *secondItem    = [itemArr objectAtIndex:1];
     UITabBarItem *thirdItem     = [itemArr objectAtIndex:2];
     firstItem.title = @"首页";
+    secondItem.title = @"分类";
     firstItem.image = [[UIImage imageNamed:@"yc_main_tabbar_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     firstItem.selectedImage = [[UIImage imageNamed:@"yc_main_tabbar_selete"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     

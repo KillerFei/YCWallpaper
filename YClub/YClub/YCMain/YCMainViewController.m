@@ -108,15 +108,18 @@
 - (void)setUpRightNavItem
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 50, 44);
-    [btn setImage:[UIImage imageNamed:@"nf_nav_rightMenu"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 16, 0, -16);
-    [btn addTarget:self action:@selector(rightMenuAction) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 54, 44);
+    [btn setImage:[UIImage imageNamed:@"yc_nav_search"] forState:UIControlStateNormal];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, -15);
+    [btn addTarget:self action:@selector(rightSearchAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
-#pragma mark - rightMenuAction
-- (void)rightMenuAction
+#pragma mark - rightSearchAction
+- (void)rightSearchAction
 {
+    
+    
+    
     
 }
 #pragma mark - btnAction
