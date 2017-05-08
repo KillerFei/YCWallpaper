@@ -25,24 +25,23 @@
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
+
     NSArray *arrWeek=[NSArray arrayWithObjects:@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六", nil];
     NSDateComponents *comps = [self nowDateComponents];
     NSString *dateStr = [NSString stringWithFormat:@"%02ld:%02ld",(long)comps.hour, (long)comps.minute];
-    CGSize dateSize = [dateStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:80]}];
+    CGSize dateSize = [dateStr sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:75]}];
     NSString *monthStr = [NSString stringWithFormat:@"%ld月%ld日 %@",(long)comps.month,(long)comps.day,arrWeek[comps.weekday]];
-    CGSize monthSize = [monthStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]}];
+    CGSize monthSize = [monthStr sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:20]}];
     
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(c, 1.0f);
     CGContextSetLineJoin(c, kCGLineJoinRound);
     CGContextSetTextDrawingMode(c, kCGTextStroke);
-    [dateStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-dateSize.width)/2.f, 60) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:80],NSForegroundColorAttributeName:[UIColor blackColor]}];
-    [monthStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-monthSize.width)/2.f, 150) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [dateStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-dateSize.width)/2.f, 63) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:75],NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [monthStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-monthSize.width)/2.f, 159) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:20],NSForegroundColorAttributeName:[UIColor blackColor]}];
     CGContextSetTextDrawingMode(c, kCGTextFill);
-    [dateStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-dateSize.width)/2.f, 60) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:80],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    [monthStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-monthSize.width)/2.f, 150) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
-    
+    [dateStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-dateSize.width)/2.f, 63) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:75],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [monthStr drawAtPoint:CGPointMake((KSCREEN_WIDTH-monthSize.width)/2.f, 159) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Heiti SC" size:20],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 #pragma mark - 获取年月日
 - (NSDateComponents *)nowDateComponents

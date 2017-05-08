@@ -7,6 +7,7 @@
 //
 
 #import "YCHudManager.h"
+#import "MMMaterialDesignSpinner.h"
 
 @implementation YCHudManager
 
@@ -63,5 +64,34 @@
         return;
     }
     [MBProgressHUD hideHUDForView:view animated:YES];
+}
+
+#pragma mark - loading
++ (void)showLoadingInView:(UIView *)view
+{
+    if (!view) {
+        return;
+    }
+    view.userInteractionEnabled = NO;
+    MMMaterialDesignSpinner *spiner = [[MMMaterialDesignSpinner alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    spiner.center = CGPointMake(view.centerX, view.centerY);
+    spiner.lineWidth = 5;
+    spiner.hidesWhenStopped = YES;
+    spiner.tintColor = YC_TabBar_SeleteColor;
+    [view addSubview:spiner];
+    [spiner startAnimating];
+}
++ (void)hideLoadingInView:(UIView *)view
+{
+    if (!view) {
+        return;
+    }
+    view.userInteractionEnabled = YES;
+    for (UIView *subView in view.subviews) {
+        if ([subView isKindOfClass:[MMMaterialDesignSpinner class]]) {
+            [(MMMaterialDesignSpinner *)subView stopAnimating];
+            [subView removeFromSuperview];
+        }
+    }
 }
 @end

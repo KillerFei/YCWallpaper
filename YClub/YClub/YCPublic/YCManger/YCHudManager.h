@@ -11,10 +11,15 @@
 
 @interface YCHudManager : NSObject
 
+// Hud
 + (void)showHudInView:(UIView *)view;
 + (void)showHudMessage:(NSString *)message InView:(UIView *)view;
 + (void)showMessage:(NSString *)message InView:(UIView *)view;
-
 + (void)hideHudInView:(UIView *)view;
+
+// Loading
++ (void)showLoadingInView:(UIView *)view;
++ (void)hideLoadingInView:(UIView *)view;
+
 
 @end

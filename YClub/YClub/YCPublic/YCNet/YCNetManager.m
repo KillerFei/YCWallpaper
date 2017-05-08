@@ -10,8 +10,21 @@
 #import "NetAPI_YC.h"
 #import "YCBaseModel.h"
 
+typedef NS_ENUM(NSInteger, YCErrorCode)
+{
+    YCErrorCode_Fail = 101,
+    YCErrorCode_NoResult
+};
 @implementation YCNetManager
 
++ (void)faildToLoadWithCode:(NSInteger)code
+                   CallBack:(callBack)callBack
+{
+    if (callBack) {
+        NSError *error = [NSError errorWithDomain:@"BizYixinErrorDomain" code:code userInfo:nil];
+        callBack(error, nil);
+    }
+}
 + (void)getListPicsWithOrder:(NSString *)order
                         skip:(NSNumber *)skip
                     callBack:(callBack)callBack
@@ -42,15 +55,11 @@
                     callBack(nil, pics);
                 }
             } else {
-                if (callBack) {
-                    callBack(nil, nil);
-                }
+               [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
             }
         }
     } fail:^(NSError *error) {
-        if (callBack) {
-            callBack(nil, nil);
-        }
+        [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
     }];
 }
 + (void)getCategoryListWithTId:(NSString *)tId
@@ -84,15 +93,11 @@
                     callBack(nil, pics);
                 }
             } else {
-                if (callBack) {
-                    callBack(nil, nil);
-                }
+                [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
             }
         }
     } fail:^(NSError *error) {
-        if (callBack) {
-            callBack(nil, nil);
-        }
+       [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
     }];
 }
 + (void)getCategoryPicsWithCallBack:(callBack)callBack
@@ -119,15 +124,11 @@
                     callBack(nil, pics);
                 }
             } else {
-                if (callBack) {
-                    callBack(nil, nil);
-                }
+                [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
             }
         }
     } fail:^(NSError *error) {
-        if (callBack) {
-            callBack(nil, nil);
-        }
+        [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
     }];
 }
 @end

@@ -39,7 +39,10 @@
         return;
     }
     _model = model;
-    [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.img]];
+    [YCHudManager showLoadingInView:_imageView];
+    [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.img] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [YCHudManager hideLoadingInView:_imageView];
+    }];
 }
 - (UIImage *)showImg
 {

@@ -22,6 +22,14 @@
     [self registerCell];
     [self requestData];
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.bFirstLoad && kArrayIsEmpty(self.dataSource)) {
+        [self requestData];
+    }
+    self.bFirstLoad = YES;
+}
 - (void)setUpLayOut
 {
     self.layOut = [[UICollectionViewFlowLayout alloc] init];
@@ -46,9 +54,9 @@
 }
 - (void)requestData
 {
-    [YCHudManager showHudInView:self.view];
+    [YCHudManager showLoadingInView:self.view];
     [YCNetManager getCategoryPicsWithCallBack:^(NSError *error, NSArray *pics) {
-        [YCHudManager hideHudInView:self.view];
+        [YCHudManager hideLoadingInView:self.view];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:pics];

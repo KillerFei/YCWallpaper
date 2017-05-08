@@ -45,7 +45,6 @@
 - (void)requestData
 {
     [YCNetManager getListPicsWithOrder:@"mixin" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];

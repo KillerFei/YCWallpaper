@@ -52,13 +52,11 @@
     self.contentView.layer.cornerRadius = 5;
     [self.contentView addSubview:self.imageview];
     [self.contentView addSubview:self.nameLabel];
-    
     [_imageview mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.left.right.equalTo(self.contentView);
         make.height.mas_equalTo(@(self.contentView.height-30));
     }];
-    
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.bottom.right.equalTo(self.contentView);

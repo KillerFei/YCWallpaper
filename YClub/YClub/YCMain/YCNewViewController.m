@@ -33,7 +33,7 @@
         [self requestNewListData];
     } else {
         if (!self.bFirstLoad) {
-            [YCHudManager showHudInView:self.view];
+            [YCHudManager showLoadingInView:self.view];
         }
         [self requestTypeListData];
     }
@@ -57,11 +57,7 @@
 {
     [YCNetManager getListPicsWithOrder:@"new" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         
-        if (kStringIsEmpty(_tId)) {
-            [self endRefresh];
-        } else {
-            [YCHudManager hideHudInView:self.view];
-        }
+        [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
@@ -76,7 +72,7 @@
 {
     [YCNetManager getCategoryListWithTId:_tId skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         if (!self.bFirstLoad) {
-            [YCHudManager hideHudInView:self.view];
+            [YCHudManager hideLoadingInView:self.view];
         } else {
              [self endRefresh];
         }

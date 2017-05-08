@@ -28,6 +28,7 @@
 		FB341EC81EB3C241008A4199 /* YCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341EC71EB3C241008A4199 /* YCBaseModel.m */; };
 		FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */; };
 		FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */; };
+		FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */; };
 		FBE8425D1EB742EC0073E1E2 /* YCEditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE8425C1EB742EC0073E1E2 /* YCEditCollectionViewCell.m */; };
 		FBE842601EB774010073E1E2 /* YCEditBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE8425F1EB774010073E1E2 /* YCEditBackView.m */; };
 		FBE842631EB774170073E1E2 /* YCEditDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE842621EB774170073E1E2 /* YCEditDownView.m */; };
@@ -155,6 +156,8 @@
 		FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLookPopView.m; sourceTree = "<group>"; };
 		FB6E0B3B1EBB055300B99AF0 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
+		FB8B11031EC01F310005110C /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		FBE8425B1EB742EC0073E1E2 /* YCEditCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEditCollectionViewCell.h; sourceTree = "<group>"; };
 		FBE8425C1EB742EC0073E1E2 /* YCEditCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEditCollectionViewCell.m; sourceTree = "<group>"; };
 		FBE8425E1EB774010073E1E2 /* YCEditBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEditBackView.h; sourceTree = "<group>"; };
@@ -439,6 +442,8 @@
 		FB341E5D1EB3950F008A4199 /* YCManger */ = {
 			isa = PBXGroup;
 			children = (
+				FB8B11031EC01F310005110C /* MMMaterialDesignSpinner.h */,
+				FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */,
 				FB341E751EB3AC78008A4199 /* YCHudManager.h */,
 				FB341E761EB3AC78008A4199 /* YCHudManager.m */,
 			);
@@ -774,6 +779,7 @@
 				FB341E741EB3ABAD008A4199 /* UIView+YC_Ex.m in Sources */,
 				FBE842631EB774170073E1E2 /* YCEditDownView.m in Sources */,
 				FB341E711EB3AB92008A4199 /* NSURL+YC_EX.m in Sources */,
+				FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */,
 				FBEEEFE71EB671F900DE5471 /* UINavigationController+WXSTransition.m in Sources */,
 				FBF09A581EBB79BF0001EBFD /* YCLockView.m in Sources */,
 				FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */,

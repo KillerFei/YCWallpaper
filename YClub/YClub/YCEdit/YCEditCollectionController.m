@@ -139,6 +139,7 @@
 {
     [self.myCollectionView registerClass:[YCEditCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
 }
+#pragma mark - menuView
 - (void)setUpMenuView
 {
     _bShow = YES;
@@ -174,6 +175,7 @@
         _bShow = NO;
     }];
 }
+#pragma mark - request
 - (void)loadMoreData
 {
     self.pageNum+=30;
@@ -190,12 +192,14 @@
 - (void)requestNewListData
 {
     [YCNetManager getListPicsWithOrder:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        
-//        [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+        [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-//            [self addLoadMoreFooter];
+            [self addLoadMoreFooter];
+        } else {
+            [self addNoResultView];
+            [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
         }
     }];
 }
@@ -245,7 +249,7 @@
         [self menuViewAnima];
     }
 }
-#pragma mark - table
+#pragma mark - table delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
@@ -383,6 +387,7 @@
         [YCHudManager showMessage:@"下载成功" InView:self.view];
     }
 }
+#pragma mark - 预览
 - (void)clickReadBtn:(UIButton *)sender
 {
     [self.popover showAtPoint:CGPointMake(KSCREEN_WIDTH/4.f*3, KSCREEN_HEIGHT-64) popoverPostion:DXPopoverPositionUp withContentView:self.popTableView inView:self.view];

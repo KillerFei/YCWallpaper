@@ -82,6 +82,7 @@
 {
     if (!_bFirstLoad) {
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        footer.stateLabel.hidden = YES;
         _myCollectionView.mj_footer = footer;
         _bFirstLoad = YES;
     }
