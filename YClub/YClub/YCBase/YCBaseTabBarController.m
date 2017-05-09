@@ -8,9 +8,10 @@
 
 #import "YCBaseTabBarController.h"
 #import "YCBaseNavigationController.h"
-#import "YCBaseViewController.h"
 #import "YCMainViewController.h"
 #import "YCTypeViewController.h"
+#import "NFMenuViewController.h"
+
 
 @interface YCBaseTabBarController ()
 
@@ -32,7 +33,7 @@
     YCTypeViewController *typeVC = [[YCTypeViewController alloc] init];
     YCBaseNavigationController *typeNav = [[YCBaseNavigationController alloc] initWithRootViewController:typeVC];
     
-    YCBaseViewController *thirdVC = [[YCBaseViewController alloc] init];
+    NFMenuViewController *thirdVC = [[NFMenuViewController alloc] init];
     YCBaseNavigationController *thirdNav = [[YCBaseNavigationController alloc] initWithRootViewController:thirdVC];
     thirdVC.title = @"我的";
     

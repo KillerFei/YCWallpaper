@@ -38,6 +38,11 @@
 		FBE8425D1EB742EC0073E1E2 /* YCEditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE8425C1EB742EC0073E1E2 /* YCEditCollectionViewCell.m */; };
 		FBE842601EB774010073E1E2 /* YCEditBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE8425F1EB774010073E1E2 /* YCEditBackView.m */; };
 		FBE842631EB774170073E1E2 /* YCEditDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE842621EB774170073E1E2 /* YCEditDownView.m */; };
+		FBEBD6B81EC1F7C500014F81 /* NFDisclaimerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEBD6B11EC1F7C500014F81 /* NFDisclaimerVC.m */; };
+		FBEBD6B91EC1F7C500014F81 /* NFMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEBD6B31EC1F7C500014F81 /* NFMenuHeaderView.m */; };
+		FBEBD6BA1EC1F7C500014F81 /* NFMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEBD6B51EC1F7C500014F81 /* NFMenuTableViewCell.m */; };
+		FBEBD6BB1EC1F7C500014F81 /* NFMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEBD6B71EC1F7C500014F81 /* NFMenuViewController.m */; };
+		FBEBD6CA1EC1FA9700014F81 /* YCToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEBD6C91EC1FA9700014F81 /* YCToolManager.m */; };
 		FBECD1471EBF0F7F0060F2A2 /* yc_home_480h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBECD1461EBF0F7F0060F2A2 /* yc_home_480h@2x.png */; };
 		FBECD14B1EBF0FA50060F2A2 /* yc_home_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBECD1481EBF0FA50060F2A2 /* yc_home_568h@2x.png */; };
 		FBECD14C1EBF0FA50060F2A2 /* yc_home_667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBECD1491EBF0FA50060F2A2 /* yc_home_667h@2x.png */; };
@@ -180,6 +185,16 @@
 		FBE8425F1EB774010073E1E2 /* YCEditBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEditBackView.m; sourceTree = "<group>"; };
 		FBE842611EB774170073E1E2 /* YCEditDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEditDownView.h; sourceTree = "<group>"; };
 		FBE842621EB774170073E1E2 /* YCEditDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEditDownView.m; sourceTree = "<group>"; };
+		FBEBD6B01EC1F7C500014F81 /* NFDisclaimerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFDisclaimerVC.h; sourceTree = "<group>"; };
+		FBEBD6B11EC1F7C500014F81 /* NFDisclaimerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFDisclaimerVC.m; sourceTree = "<group>"; };
+		FBEBD6B21EC1F7C500014F81 /* NFMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFMenuHeaderView.h; sourceTree = "<group>"; };
+		FBEBD6B31EC1F7C500014F81 /* NFMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFMenuHeaderView.m; sourceTree = "<group>"; };
+		FBEBD6B41EC1F7C500014F81 /* NFMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFMenuTableViewCell.h; sourceTree = "<group>"; };
+		FBEBD6B51EC1F7C500014F81 /* NFMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFMenuTableViewCell.m; sourceTree = "<group>"; };
+		FBEBD6B61EC1F7C500014F81 /* NFMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFMenuViewController.h; sourceTree = "<group>"; };
+		FBEBD6B71EC1F7C500014F81 /* NFMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFMenuViewController.m; sourceTree = "<group>"; };
+		FBEBD6C81EC1FA9700014F81 /* YCToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCToolManager.h; sourceTree = "<group>"; };
+		FBEBD6C91EC1FA9700014F81 /* YCToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCToolManager.m; sourceTree = "<group>"; };
 		FBECD1461EBF0F7F0060F2A2 /* yc_home_480h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_home_480h@2x.png"; sourceTree = "<group>"; };
 		FBECD1481EBF0FA50060F2A2 /* yc_home_568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_home_568h@2x.png"; sourceTree = "<group>"; };
 		FBECD1491EBF0FA50060F2A2 /* yc_home_667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_home_667h@2x.png"; sourceTree = "<group>"; };
@@ -331,6 +346,7 @@
 		FB341E1B1EB393EC008A4199 /* YClub */ = {
 			isa = PBXGroup;
 			children = (
+				FBEBD6AF1EC1F7C500014F81 /* NFMenu */,
 				FBEEEF641EB665D500DE5471 /* YCEdit */,
 				FBED03301EB45A3B00BEEA75 /* YCType */,
 				FB341EAD1EB3AFD1008A4199 /* YCMain */,
@@ -473,6 +489,8 @@
 				FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */,
 				FB341E751EB3AC78008A4199 /* YCHudManager.h */,
 				FB341E761EB3AC78008A4199 /* YCHudManager.m */,
+				FBEBD6C81EC1FA9700014F81 /* YCToolManager.h */,
+				FBEBD6C91EC1FA9700014F81 /* YCToolManager.m */,
 			);
 			path = YCManger;
 			sourceTree = "<group>";
@@ -522,6 +540,21 @@
 				FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */,
 			);
 			path = DXPop;
+			sourceTree = "<group>";
+		};
+		FBEBD6AF1EC1F7C500014F81 /* NFMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FBEBD6B01EC1F7C500014F81 /* NFDisclaimerVC.h */,
+				FBEBD6B11EC1F7C500014F81 /* NFDisclaimerVC.m */,
+				FBEBD6B21EC1F7C500014F81 /* NFMenuHeaderView.h */,
+				FBEBD6B31EC1F7C500014F81 /* NFMenuHeaderView.m */,
+				FBEBD6B41EC1F7C500014F81 /* NFMenuTableViewCell.h */,
+				FBEBD6B51EC1F7C500014F81 /* NFMenuTableViewCell.m */,
+				FBEBD6B61EC1F7C500014F81 /* NFMenuViewController.h */,
+				FBEBD6B71EC1F7C500014F81 /* NFMenuViewController.m */,
+			);
+			path = NFMenu;
 			sourceTree = "<group>";
 		};
 		FBED03301EB45A3B00BEEA75 /* YCType */ = {
@@ -819,9 +852,11 @@
 				FB341E711EB3AB92008A4199 /* NSURL+YC_EX.m in Sources */,
 				FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */,
 				FBEEEFE71EB671F900DE5471 /* UINavigationController+WXSTransition.m in Sources */,
+				FBEBD6B91EC1F7C500014F81 /* NFMenuHeaderView.m in Sources */,
 				FBF09A581EBB79BF0001EBFD /* YCLockView.m in Sources */,
 				FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */,
 				FBE8425D1EB742EC0073E1E2 /* YCEditCollectionViewCell.m in Sources */,
+				FBEBD6CA1EC1FA9700014F81 /* YCToolManager.m in Sources */,
 				FBEEEFF01EB671F900DE5471 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				FBEEEFF61EB671F900DE5471 /* WXSTransitionProperty.m in Sources */,
 				FB341E7F1EB3ADAF008A4199 /* YCNetManager.m in Sources */,
@@ -831,6 +866,8 @@
 				FBEEEFE81EB671F900DE5471 /* UIViewController+WXSTransition.m in Sources */,
 				FB341E631EB39B01008A4199 /* YCBaseNavigationController.m in Sources */,
 				FBE4CC761EC1780F008D1652 /* YCSearchTableViewCell.m in Sources */,
+				FBEBD6BB1EC1F7C500014F81 /* NFMenuViewController.m in Sources */,
+				FBEBD6B81EC1F7C500014F81 /* NFDisclaimerVC.m in Sources */,
 				FB341E681EB39BA6008A4199 /* YCBaseTabBarController.m in Sources */,
 				FBED03391EB45F8100BEEA75 /* YCTypeCollectionViewCell.m in Sources */,
 				FBEEEFF11EB671F900DE5471 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
@@ -843,6 +880,7 @@
 				FBEEEFE91EB671F900DE5471 /* UIViewController+WXSTransitionProperty.m in Sources */,
 				FB341EC51EB3B995008A4199 /* YCBaseCollectionViewCell.m in Sources */,
 				FBEEEFF41EB671F900DE5471 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
+				FBEBD6BA1EC1F7C500014F81 /* NFMenuTableViewCell.m in Sources */,
 				FBF2F2711EC0B43B008C1F6B /* YCSearchViewController.m in Sources */,
 				FB341EB01EB3AFE8008A4199 /* YCMainViewController.m in Sources */,
 				FBEEEFEA1EB671F900DE5471 /* WXSPercentDrivenInteractiveTransition.m in Sources */,

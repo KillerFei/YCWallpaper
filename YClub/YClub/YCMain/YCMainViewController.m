@@ -10,6 +10,7 @@
 #import "YCRecViewController.h"
 #import "YCNewViewController.h"
 #import "YCHotViewController.h"
+#import "YCSearchViewController.h"
 
 @interface YCMainViewController ()<UIScrollViewDelegate>
 
@@ -117,10 +118,9 @@
 #pragma mark - rightSearchAction
 - (void)rightSearchAction
 {
-    
-    
-    
-    
+    YCSearchViewController *searchVC = [[YCSearchViewController alloc] init];
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 #pragma mark - btnAction
 - (void)btnAction:(UIButton *)sender

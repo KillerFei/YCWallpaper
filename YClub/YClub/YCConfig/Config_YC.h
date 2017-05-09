@@ -10,11 +10,16 @@
 #define Config_YC_h
 
 #define kAppName                  @"高清壁纸"
-#define kAppUrl                   @""
-
+#define kAppUrl                   @"itms-apps://itunes.apple.com/app/id1232126821"
+#define kUMAppKey                 @"58fd5b0a4ad1561acc00202e"
+#define kQQAppId                  @"1106126008"
+#define kQQAppKey                 @"GgrbW83vKfbIaLeI"
 // key
-#define kDTLastVersionKey         @"lastVersion"
-#define KDTVersionCommentKey      @"versionCommentKey"
+#define kYCLastVersionKey         @"lastVersion"
+#define kYCVersionCommentKey      @"versionCommentKey"
+#define kYCRemoveLaunchViewNoti   @"removeLaunchViewNoti"
+#define kYCFirstVersionKey        @"firstVersionKey"
+#define kYCReadFoodCount          @"readFoodCount"
 
 //----------------------UI类--------------------------
 //RGB颜色

@@ -88,12 +88,6 @@
     titleView.leftViewMode = UITextFieldViewModeAlways;
     titleView.leftView = searchView;
     self.navigationItem.titleView = titleView;
-//    [self.navigationController.navigationBar addSubview:titleView];
-//    [self.navigationItem.titleView addSubview:titleView];
-    
-//    titleView.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-//    [titleView addGestureRecognizer:tap];
 }
 #pragma mark - setUpTableView
 - (void)setUpTableView
@@ -163,7 +157,4 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
-
 @end

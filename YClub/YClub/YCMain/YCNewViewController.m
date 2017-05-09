@@ -100,9 +100,8 @@
                 [self loadMoreData];
             }
         } else {
-            
-            if (error.code == 101) {
-                [YCHudManager showMessage:@"wa，请检查" InView:<#(UIView *)#>]
+            if (error.code == 101 && kArrayIsEmpty(self.dataSource)) {
+                [YCHudManager showMessage:@"网络错误,请检查网络后刷新" InView:self.view];
             } else {
                 [YCHudManager hideLoadingInView:self.view];
                 [self.myCollectionView reloadData];
