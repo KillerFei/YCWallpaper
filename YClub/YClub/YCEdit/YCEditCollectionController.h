@@ -11,7 +11,7 @@
 @interface YCEditCollectionController : YCBaseCollectionController
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, assign) BOOL     category;
 @property (nonatomic, strong) NSString *order;
-
+@property (nonatomic, assign) BOOL     bSearch;
+@property (nonatomic, assign) BOOL     category;
 @end

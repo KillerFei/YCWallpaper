@@ -48,6 +48,6 @@
     if (!model) {
         return;
     }
-    [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.thumb]];
+    [_imageView sd_setImageWithURL:[NSURL safeURLWithString:model.thumb] placeholderImage:[UIImage imageNamed:@"yc_default_place"]];
 }
 @end

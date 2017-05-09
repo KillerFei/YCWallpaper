@@ -10,16 +10,13 @@
 #import "YCBaseCollectionViewCell.h"
 #import "YCEditCollectionController.h"
 #import "UIViewController+WXSTransition.h"
-@interface YCNewViewController ()
-
-@end
 
 @implementation YCNewViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpLayOut];
     [self setUpCollectionView];
-    if (!kStringIsEmpty(_tId)) {
+    if (!kStringIsEmpty(_tId) || !kStringIsEmpty(_searchKey)) {
         self.myCollectionView.frame = CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64);
         [self setLeftBackNavItem];
     }
@@ -29,13 +26,17 @@
 }
 - (void)requestData
 {
-    if (kStringIsEmpty(_tId)) {
+    if (kStringIsEmpty(_tId) && kStringIsEmpty(_searchKey)) {
         [self requestNewListData];
     } else {
         if (!self.bFirstLoad) {
             [YCHudManager showLoadingInView:self.view];
         }
-        [self requestTypeListData];
+        if (!kStringIsEmpty(_tId)) {
+            [self requestTypeListData];
+        } else {
+            [self requestSearchListData];
+        }
     }
 }
 - (void)loadNewData
@@ -86,6 +87,29 @@
         }
     }];
 }
+- (void)requestSearchListData
+{
+    [YCNetManager getSearchListWithKey:_searchKey skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.bFirstLoad = YES;
+        if (!kArrayIsEmpty(pics)) {
+            [self.dataSource addObjectsFromArray:pics];
+            if (pics.count < 30) {
+                [YCHudManager hideLoadingInView:self.view];
+                [self.myCollectionView reloadData];
+            } else {
+                [self loadMoreData];
+            }
+        } else {
+            
+            if (error.code == 101) {
+                [YCHudManager showMessage:@"wa，请检查" InView:<#(UIView *)#>]
+            } else {
+                [YCHudManager hideLoadingInView:self.view];
+                [self.myCollectionView reloadData];
+            }
+        }
+    }];
+}
 #pragma mark - collection
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -99,7 +123,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item>self.dataSource.count-12 && self.scrollBottom)
+    if (indexPath.item>self.dataSource.count-12 && self.scrollBottom && kStringIsEmpty(_searchKey))
     {
         [self loadMoreData];
     }
@@ -111,6 +135,8 @@
     if (!kStringIsEmpty(_tId)) {
         editVC.category = YES;
         editVC.order    = _tId;
+    } else if (!kStringIsEmpty(_searchKey)){
+        editVC.dataSource = self.dataSource;
     } else {
         editVC.category = NO;
         editVC.order    = @"new";
@@ -123,12 +149,18 @@
 #pragma mark - scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (!kStringIsEmpty(_searchKey)) {
+        return;
+    }
     if (self.lastOffSetY<scrollView.contentOffset.y) {
         self.scrollBottom = YES;
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
+    if (!kStringIsEmpty(_searchKey)) {
+        return;
+    }
     self.lastOffSetY = scrollView.contentOffset.y;
 }
 - (void)didReceiveMemoryWarning {

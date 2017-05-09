@@ -21,4 +21,10 @@ typedef void(^callBack)(NSError *error ,NSArray *pics);
                           skip:(NSNumber *)skip
                        callBack:(callBack)callBack;
 
++ (void)getHotSearchKeyWordsWithCallBack:(callBack)callBack;
+
++ (void)getSearchListWithKey:(NSString *)key
+                        skip:(NSNumber *)skip
+                    callBack:(callBack)callBack;
+
 @end

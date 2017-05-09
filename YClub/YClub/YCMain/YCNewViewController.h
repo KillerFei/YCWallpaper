@@ -11,5 +11,6 @@
 @interface YCNewViewController : YCBaseCollectionController
 
 @property (nonatomic, strong) NSString *tId;
+@property (nonatomic, strong) NSString *searchKey;
 
 @end

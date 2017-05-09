@@ -182,10 +182,14 @@
 }
 - (void)requestData
 {
-    if (!_category) {
-        [self requestNewListData];
+    if (_bSearch) {
+        return;
     } else {
-        [self requestCaListData];
+        if (!_category) {
+            [self requestNewListData];
+        } else {
+            [self requestCaListData];
+        }
     }
 }
 - (void)requestNewListData
@@ -231,7 +235,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item>self.dataSource.count-6 && self.scrollBottom)
+    if (indexPath.item>self.dataSource.count-6 && self.scrollBottom && _bSearch)
     {
         [self loadMoreData];
     }
@@ -313,12 +317,18 @@
 #pragma mark - scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (_bSearch) {
+        return;
+    }
     if (self.lastOffSetX < scrollView.contentOffset.x) {
         self.scrollBottom = YES;
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
+    if (_bSearch) {
+        return;
+    }
     self.lastOffSetX = scrollView.contentOffset.x;
 }
 - (void)didReceiveMemoryWarning {

@@ -75,7 +75,7 @@
     view.userInteractionEnabled = NO;
     MMMaterialDesignSpinner *spiner = [[MMMaterialDesignSpinner alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     spiner.center = CGPointMake(view.centerX, view.centerY);
-    spiner.lineWidth = 5;
+    spiner.lineWidth = 4;
     spiner.hidesWhenStopped = YES;
     spiner.tintColor = YC_TabBar_SeleteColor;
     [view addSubview:spiner];

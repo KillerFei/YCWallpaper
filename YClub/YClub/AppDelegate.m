@@ -28,6 +28,7 @@
 - (void)setUpNetwork
 {
     [HYBNetworking updateBaseUrl:kYCBaseHostUrl];
+    [HYBNetworking configRequestType:kHYBRequestTypeJSON responseType:kHYBResponseTypeJSON shouldAutoEncodeUrl:YES callbackOnCancelRequest:YES];
 }
 - (void)setUpKeyWindow
 {

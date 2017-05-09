@@ -57,6 +57,8 @@ typedef NS_ENUM(NSInteger, YCErrorCode)
             } else {
                [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
             }
+        }else {
+            [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
         }
     } fail:^(NSError *error) {
         [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
@@ -95,11 +97,14 @@ typedef NS_ENUM(NSInteger, YCErrorCode)
             } else {
                 [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
             }
+        }else {
+            [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
         }
     } fail:^(NSError *error) {
        [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
     }];
 }
+
 + (void)getCategoryPicsWithCallBack:(callBack)callBack
 {
     [HYBNetworking getWithUrl:kYCBaseCategoryUrl refreshCache:YES success:^(id response) {
@@ -126,6 +131,79 @@ typedef NS_ENUM(NSInteger, YCErrorCode)
             } else {
                 [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
             }
+        } else {
+             [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
+        }
+    } fail:^(NSError *error) {
+        [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
+    }];
+}
++ (void)getHotSearchKeyWordsWithCallBack:(callBack)callBack
+{
+    int i = 0;
+    NSString *adult = @"false";
+    i = arc4random()%2;
+    if (1) {
+        adult = @"true";
+    }
+    [HYBNetworking getWithUrl:kYCHotKeyWordsUrl refreshCache:YES params:@{@"versionCode":@"168",@"channel":@"ios",@"first":@"0",@"adult":adult} success:^(id response) {
+        
+        NSDictionary *resp = (NSDictionary *)response;
+        NSNumber *code = resp[@"code"];
+        if ([code isEqual:@0]) {
+            NSDictionary *res = resp[@"res"];
+            NSArray *keyword = res[@"keyword"];
+            if (!kArrayIsEmpty(keyword)) {
+                NSDictionary *word = keyword[0];
+                NSArray *items = word[@"items"];
+                if (callBack) {
+                    callBack(nil, items);
+                }
+            } else {
+                [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
+            }
+        } else {
+            [YCNetManager faildToLoadWithCode:101 CallBack:callBack];
+        }
+    } fail:^(NSError *error) {
+        
+    }];
+}
++ (void)getSearchListWithKey:(NSString *)key
+                        skip:(NSNumber *)skip
+                    callBack:(callBack)callBack
+{
+    NSDictionary *params = @{@"adult":@0,
+                             @"first":@1,
+                             @"limit":@30,
+                             @"order":@"new",
+                             @"skip":skip};
+    NSString *url = [NSString stringWithFormat:@"http://so.picasso.adesk.com/v1/search/vertical/resource/%@",key];
+    [HYBNetworking getWithUrl:url refreshCache:YES params:params success:^(id response) {
+        
+        NSDictionary *resp = (NSDictionary *)response;
+        NSNumber *code = resp[@"code"];
+        if ([code isEqual:@0]) {
+            
+            NSDictionary *res = resp[@"res"];
+            NSArray *vertical = res[@"vertical"];
+            if (!kArrayIsEmpty(vertical)) {
+                NSMutableArray *pics = [[NSMutableArray alloc] init];
+                for (NSDictionary *dict in vertical) {
+                    
+                    YCBaseModel *model = [[YCBaseModel alloc] init];
+                    model.thumb = dict[@"thumb"];
+                    model.img   = dict[@"img"];
+                    [pics addObject:model];
+                }
+                if (callBack) {
+                    callBack(nil, pics);
+                }
+            } else {
+                [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
+            }
+        }else {
+            [YCNetManager faildToLoadWithCode:102 CallBack:callBack];
         }
     } fail:^(NSError *error) {
         [YCNetManager faildToLoadWithCode:101 CallBack:callBack];

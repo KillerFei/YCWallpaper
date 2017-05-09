@@ -68,7 +68,7 @@
     if (!model) {
         return;
     }
-    [_imageview sd_setImageWithURL:[NSURL safeURLWithString:model.cover]];
+    [_imageview sd_setImageWithURL:[NSURL safeURLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"yc_default_place"]] ;
     _nameLabel.text = model.name;
 }
 

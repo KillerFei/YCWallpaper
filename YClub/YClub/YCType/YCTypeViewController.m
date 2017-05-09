@@ -8,6 +8,7 @@
 
 #import "YCTypeViewController.h"
 #import "YCNewViewController.h"
+#import "YCSearchViewController.h"
 #import "YCTypeCollectionViewCell.h"
 
 @interface YCTypeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -53,7 +54,9 @@
 #pragma mark - tapAction
 - (void)tapAction
 {
-    
+    YCSearchViewController *searchVC = [[YCSearchViewController alloc] init];
+    searchVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 #pragma mark - setUpView
 - (void)setUpLayOut

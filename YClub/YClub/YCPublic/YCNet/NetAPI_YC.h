@@ -12,4 +12,6 @@
 #define kYCBaseHostUrl        @"http://service.picasso.adesk.com"
 #define kYCBaseListUrl        @"v1/lightwp/vertical"
 #define kYCBaseCategoryUrl    @"v1/lightwp/category"
+#define kYCHotKeyWordsUrl     @"v1/push/keyword"
+
 #endif /* NetAPI_YC_h */
