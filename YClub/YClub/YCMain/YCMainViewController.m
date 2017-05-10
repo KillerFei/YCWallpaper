@@ -46,7 +46,7 @@
 #pragma mark - setUpChildVC
 - (void)setUpChildVC
 {
-    _mainScr = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49)];
+    _mainScr = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49)];
     _mainScr.delegate = self;
     _mainScr.pagingEnabled = YES;
     _mainScr.showsVerticalScrollIndicator = NO;

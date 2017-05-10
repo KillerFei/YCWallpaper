@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PNChart.h"
 #import <UIKit/UIKit.h>
 
 @interface YCHudManager : NSObject

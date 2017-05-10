@@ -35,15 +35,15 @@
 #pragma mark - setUpTitleView
 - (void)setUpTitleView
 {
-    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH-30, 35)];
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH-30, 30)];
     titleView.text = @"         输入关键字";
-    titleView.font = YC_Nav_TitleFont;
+    titleView.font = YC_Base_TitleFont;
     titleView.layer.cornerRadius = 5;
     titleView.layer.masksToBounds = YES;
     titleView.textColor = YC_Base_ContentColor;
-    titleView.backgroundColor = YC_Base_LineColor;
+    titleView.backgroundColor = YC_Base_BgGrayColor;
     UIImageView *searchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yc_nav_search"]];
-    searchView.center = CGPointMake(17, 17.5);
+    searchView.center = CGPointMake(17, 15);
     [titleView addSubview:searchView];
     self.navigationItem.titleView = titleView;
     
@@ -70,7 +70,7 @@
 }
 - (void)setUpCollectionView
 {
-    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49) collectionViewLayout:self.layOut];
+    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49) collectionViewLayout:self.layOut];
     self.myCollectionView.backgroundColor = YC_Base_BgGrayColor;
     self.myCollectionView.delegate = self;
     self.myCollectionView.dataSource = self;

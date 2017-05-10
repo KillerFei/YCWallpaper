@@ -17,7 +17,7 @@
     [self setUpLayOut];
     [self setUpCollectionView];
     if (!kStringIsEmpty(_tId) || !kStringIsEmpty(_searchKey)) {
-        self.myCollectionView.frame = CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64);
+        self.myCollectionView.height = KSCREEN_HEIGHT-64;
         [self setLeftBackNavItem];
     }
     [self registerCell];
@@ -57,7 +57,7 @@
 - (void)requestNewListData
 {
     [YCNetManager getListPicsWithOrder:@"new" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        
+        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
@@ -72,6 +72,7 @@
 - (void)requestTypeListData
 {
     [YCNetManager getCategoryListWithTId:_tId skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.loading = NO;
         if (!self.bFirstLoad) {
             [YCHudManager hideLoadingInView:self.view];
         } else {
@@ -90,6 +91,7 @@
 - (void)requestSearchListData
 {
     [YCNetManager getSearchListWithKey:_searchKey skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.loading = NO;
         self.bFirstLoad = YES;
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
@@ -122,8 +124,9 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item>self.dataSource.count-12 && self.scrollBottom && kStringIsEmpty(_searchKey))
+    if (indexPath.item == self.dataSource.count-12 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
     {
+        self.loading = YES;
         [self loadMoreData];
     }
 }
@@ -136,6 +139,7 @@
         editVC.order    = _tId;
     } else if (!kStringIsEmpty(_searchKey)){
         editVC.dataSource = self.dataSource;
+        editVC.bSearch    = YES;
     } else {
         editVC.category = NO;
         editVC.order    = @"new";

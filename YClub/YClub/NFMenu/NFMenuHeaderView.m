@@ -47,7 +47,7 @@
     [super layoutSubviews];
     [_logoView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(self).with.offset(35);
+        make.top.equalTo(self).with.offset(20);
         make.centerX.equalTo(self);
         make.size.mas_equalTo(CGSizeMake(90, 90));
     }];

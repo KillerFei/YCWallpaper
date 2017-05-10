@@ -11,8 +11,10 @@
 #import "YCEditCollectionViewCell.h"
 #import "YCEditBackView.h"
 #import "YCEditDownView.h"
+#import "XZMRefresh.h"
 #import "YCLockView.h"
 #import "DXPopover.h"
+#import "UIScrollView+PSRefresh.h"
 
 @interface YCEditCollectionController ()<UICollectionViewDelegate, UICollectionViewDataSource, YCEditBackViewDelegate, YCEditDownViewDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -97,6 +99,7 @@
     [self registerCell];
     [self setUpMenuView];
     [self setUpCurrentModel];
+    [self addLoadMoreFooter];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -174,6 +177,31 @@
         _bShow = NO;
     }];
 }
+#pragma mark - addLoadMoreFooter
+- (void)addLoadMoreFooter
+{
+    if (self.dataSource.count>0) {
+//        [self.myCollectionView xzm_addNormalFooterWithTarget:self action:@selector(loadMoreData)];
+//        self.myCollectionView.xzm_footer.font = YC_Base_TitleFont;
+//        self.myCollectionView.xzm_footer.textColor = YC_TabBar_SeleteColor;
+        
+        WeakSelf(weakSelf);
+        [self.myCollectionView addRefreshFooterWithClosure:^{
+            
+            [weakSelf loadMoreData];
+        }];
+        self.myCollectionView.refreshFooterTextColor = YC_TabBar_SeleteColor;
+        self.myCollectionView.refreshFooterFont = YC_Base_TitleFont;
+        if (_bSearch) {
+            self.myCollectionView.isLastPage = YES;
+        }
+        
+    }
+}
+- (void)endRefresh
+{
+    [self.myCollectionView.xzm_footer endRefreshing];
+}
 #pragma mark - request
 - (void)loadMoreData
 {
@@ -183,6 +211,7 @@
 - (void)requestData
 {
     if (_bSearch) {
+        [self.myCollectionView endRefreshing];
         return;
     } else {
         if (!_category) {
@@ -192,14 +221,18 @@
         }
     }
 }
+//- (void)showMessage
+//{
+//    [YCHudManager showMessage:@"没有更多搜索结果" InView:self.view];
+//}
 - (void)requestNewListData
 {
     [YCNetManager getListPicsWithOrder:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-//            [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
@@ -209,11 +242,11 @@
 - (void)requestCaListData
 {
     [YCNetManager getCategoryListWithTId:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
-//            [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
@@ -235,8 +268,9 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item>self.dataSource.count-6 && self.scrollBottom && _bSearch)
+    if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !_bSearch && !self.loading)
     {
+        self.loading = YES;
         [self loadMoreData];
     }
 }

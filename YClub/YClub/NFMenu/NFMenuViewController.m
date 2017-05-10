@@ -35,7 +35,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
         _myTableView.backgroundColor = YC_Base_BgGrayColor;
         _myTableView.separatorColor = YC_Base_LineColor;
         [_myTableView registerClass:[NFMenuTableViewCell class] forCellReuseIdentifier:kNFMenuCellIdentifier];
-        _myTableView.tableHeaderView = [[NFMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 180)];
+        _myTableView.tableHeaderView = [[NFMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 160)];
     }
     return _myTableView;
 }
@@ -60,16 +60,13 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
     NSMutableArray *section = [[NSMutableArray alloc] init];
     NSNumber *number = [NSNumber numberWithInteger:kNFMenuType_Love];
     [section addObject:number];
-    [self.dataSource addObject:section];
-    
-    section = [[NSMutableArray alloc] init];
     number = [NSNumber numberWithInteger:kNFMenuType_Judge];
     [section addObject:number];
     number = [NSNumber numberWithInteger:kNFMenuType_Declaration];
     [section addObject:number];
-   // [self.dataSource addObject:section];
+    [self.dataSource addObject:section];
     
-    //section = [[NSMutableArray alloc] init];
+    section = [[NSMutableArray alloc] init];
     number = [NSNumber numberWithInteger:kNFMenuType_Clear];
     [section addObject:number];
     [self.dataSource addObject:section];
@@ -154,6 +151,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
 {
     NFDisclaimerVC *disVC = [[NFDisclaimerVC alloc] init];
     disVC.navTitle = @"免责声明";
+    disVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:disVC animated:YES];
 }
 // 清楚缓存

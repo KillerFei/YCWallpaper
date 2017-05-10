@@ -24,7 +24,7 @@
 - (void)setUpSubviews
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _disclaimerView = [[UITextView alloc] initWithFrame:CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64)];
+    _disclaimerView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64)];
     _disclaimerView.selectable = NO;
     [_disclaimerView setTextContainerInset:UIEdgeInsetsMake(20, 10, 5, 10)];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];

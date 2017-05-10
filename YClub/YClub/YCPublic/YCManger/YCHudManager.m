@@ -52,8 +52,10 @@
     hud.bezelView.color = [UIColor blackColor];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;
-    hud.detailsLabel.textColor = [UIColor whiteColor];
-    hud.label.textColor        = [UIColor whiteColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.label.textColor        = [UIColor whiteColor];
+    hud.detailsLabel.textColor = YC_TabBar_SeleteColor;
+    hud.label.textColor        = YC_TabBar_SeleteColor;
     [view addSubview:hud];
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2];
@@ -93,21 +95,5 @@
             [subView removeFromSuperview];
         }
     }
-}
-#pragma mark - cirleLoading
-+ (PNCircleChart *)showCirleLoadingInView:(UIView *)view;
-{
-    if (!view) {
-        return nil;
-    }
-    PNCircleChart *circleChart = [[PNCircleChart alloc]initWithFrame:CGRectMake(0, 0, 60, 60) total:[NSNumber numberWithInt:1] current:[NSNumber numberWithInt:0] clockwise:YES shadow:YES shadowColor:YC_Base_LineColor displayCountingLabel:YES overrideLineWidth:[NSNumber numberWithInt:3]];
-    circleChart.center = CGPointMake(view.centerX, view.centerY);
-    //设置颜色
-    [circleChart setStrokeColorGradientStart:YC_TabBar_SeleteColor];
-    //开始画圆
-    [circleChart strokeChart];
-    //Add
-    [view addSubview:circleChart];
-    return circleChart;
 }
 @end
