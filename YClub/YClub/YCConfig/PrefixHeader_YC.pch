@@ -25,5 +25,6 @@
 #import "AFNetworking.h"
 #import "HYBNetworking.h"
 #import "MBProgressHUD.h"
+#import "MMMaterialDesignSpinner.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #endif /* PrefixHeader_YC_pch */

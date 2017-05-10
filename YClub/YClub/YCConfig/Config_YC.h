@@ -11,9 +11,9 @@
 
 #define kAppName                  @"高清壁纸"
 #define kAppUrl                   @"itms-apps://itunes.apple.com/app/id1232126821"
-#define kUMAppKey                 @"58fd5b0a4ad1561acc00202e"
-#define kQQAppId                  @"1106126008"
-#define kQQAppKey                 @"GgrbW83vKfbIaLeI"
+#define kUMAppKey                 @"59127aac45297d3b1c002333"
+#define kQQAppId                  @"1106156590"
+#define kQQAppKey                 @"CH7ygTCDZafhKOwG"
 // key
 #define kYCLastVersionKey         @"lastVersion"
 #define kYCVersionCommentKey      @"versionCommentKey"

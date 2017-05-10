@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PNChart.h"
 #import <UIKit/UIKit.h>
 
 @interface YCHudManager : NSObject
@@ -20,6 +21,4 @@
 // Loading
 + (void)showLoadingInView:(UIView *)view;
 + (void)hideLoadingInView:(UIView *)view;
-
-
 @end
