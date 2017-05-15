@@ -42,6 +42,7 @@
 - (void)requestData
 {
     [YCNetManager getListPicsWithOrder:@"hot" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
@@ -66,8 +67,9 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item>self.dataSource.count-12 && self.scrollBottom)
+    if (indexPath.item == self.dataSource.count-12 && self.scrollBottom && !self.loading)
     {
+        self.loading = YES;
         [self loadMoreData];
     }
 }

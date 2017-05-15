@@ -22,7 +22,7 @@
 {
     if (!_myTable) {
         
-        _myTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT-64) style:UITableViewStylePlain];
+        _myTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64) style:UITableViewStylePlain];
         _myTable.delegate = self;
         _myTable.dataSource = self;
         [_myTable registerClass:[YCSearchTableViewCell  class] forCellReuseIdentifier:@"cellID"];
@@ -75,14 +75,14 @@
 #pragma mark - setUpTitleView
 - (void)setUpTitleView
 {
-    UITextField *titleView = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH-60, 35)];
+    UITextField *titleView = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH-60, 30)];
     titleView.delegate = self;
     titleView.layer.cornerRadius = 5;
     titleView.layer.masksToBounds = YES;
-    titleView.font = YC_Nav_TitleFont;
+    titleView.font = YC_Base_TitleFont;
     titleView.placeholder = @"输入关键字";
     titleView.textColor = YC_Base_TitleColor;
-    titleView.backgroundColor = YC_Base_LineColor;
+    titleView.backgroundColor = YC_Base_BgGrayColor;
     titleView.clearButtonMode = UITextFieldViewModeWhileEditing;
     UIImageView *searchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yc_nav_search"]];
     titleView.leftViewMode = UITextFieldViewModeAlways;

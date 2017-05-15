@@ -118,6 +118,15 @@
 		FBF2F26D1EC090EF008C1F6B /* yc_nav_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2F26B1EC090EF008C1F6B /* yc_nav_search@2x.png */; };
 		FBF2F26E1EC090EF008C1F6B /* yc_nav_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2F26C1EC090EF008C1F6B /* yc_nav_search@3x.png */; };
 		FBF2F2711EC0B43B008C1F6B /* YCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF2F2701EC0B43B008C1F6B /* YCSearchViewController.m */; };
+		FBFF0FB31EC34CB4007D76EC /* yc_nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFF0FB21EC34CB4007D76EC /* yc_nav_bg.png */; };
+		FBFF0FC71EC3649B007D76EC /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFF0FB51EC3649B007D76EC /* arrow@2x.png */; };
+		FBFF0FC81EC3649B007D76EC /* PSBaseRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FB71EC3649B007D76EC /* PSBaseRefreshControl.m */; };
+		FBFF0FC91EC3649B007D76EC /* PSGifRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FBB1EC3649B007D76EC /* PSGifRefreshFooter.m */; };
+		FBFF0FCA1EC3649B007D76EC /* PSNormalRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FBD1EC3649B007D76EC /* PSNormalRefreshFooter.m */; };
+		FBFF0FCB1EC3649B007D76EC /* PSGifRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FC01EC3649B007D76EC /* PSGifRefreshHeader.m */; };
+		FBFF0FCC1EC3649B007D76EC /* PSNormalRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FC21EC3649B007D76EC /* PSNormalRefreshHeader.m */; };
+		FBFF0FCD1EC3649B007D76EC /* UIScrollView+PSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FC41EC3649B007D76EC /* UIScrollView+PSRefresh.m */; };
+		FBFF0FCE1EC3649B007D76EC /* UIView+PSFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFF0FC61EC3649B007D76EC /* UIView+PSFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +301,23 @@
 		FBF2F26C1EC090EF008C1F6B /* yc_nav_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yc_nav_search@3x.png"; path = "YCLoading/yc_nav_search@3x.png"; sourceTree = "<group>"; };
 		FBF2F26F1EC0B43B008C1F6B /* YCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSearchViewController.h; sourceTree = "<group>"; };
 		FBF2F2701EC0B43B008C1F6B /* YCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSearchViewController.m; sourceTree = "<group>"; };
+		FBFF0FB21EC34CB4007D76EC /* yc_nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_nav_bg.png; sourceTree = "<group>"; };
+		FBFF0FB51EC3649B007D76EC /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		FBFF0FB61EC3649B007D76EC /* PSBaseRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBaseRefreshControl.h; sourceTree = "<group>"; };
+		FBFF0FB71EC3649B007D76EC /* PSBaseRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBaseRefreshControl.m; sourceTree = "<group>"; };
+		FBFF0FB81EC3649B007D76EC /* PSRefreshConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRefreshConfig.h; sourceTree = "<group>"; };
+		FBFF0FBA1EC3649B007D76EC /* PSGifRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGifRefreshFooter.h; sourceTree = "<group>"; };
+		FBFF0FBB1EC3649B007D76EC /* PSGifRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGifRefreshFooter.m; sourceTree = "<group>"; };
+		FBFF0FBC1EC3649B007D76EC /* PSNormalRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNormalRefreshFooter.h; sourceTree = "<group>"; };
+		FBFF0FBD1EC3649B007D76EC /* PSNormalRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNormalRefreshFooter.m; sourceTree = "<group>"; };
+		FBFF0FBF1EC3649B007D76EC /* PSGifRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGifRefreshHeader.h; sourceTree = "<group>"; };
+		FBFF0FC01EC3649B007D76EC /* PSGifRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGifRefreshHeader.m; sourceTree = "<group>"; };
+		FBFF0FC11EC3649B007D76EC /* PSNormalRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNormalRefreshHeader.h; sourceTree = "<group>"; };
+		FBFF0FC21EC3649B007D76EC /* PSNormalRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNormalRefreshHeader.m; sourceTree = "<group>"; };
+		FBFF0FC31EC3649B007D76EC /* UIScrollView+PSRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PSRefresh.h"; sourceTree = "<group>"; };
+		FBFF0FC41EC3649B007D76EC /* UIScrollView+PSRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+PSRefresh.m"; sourceTree = "<group>"; };
+		FBFF0FC51EC3649B007D76EC /* UIView+PSFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PSFrame.h"; sourceTree = "<group>"; };
+		FBFF0FC61EC3649B007D76EC /* UIView+PSFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PSFrame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				FBED03841EB513E500BEEA75 /* YCLoading */,
+				FBFF0FB21EC34CB4007D76EC /* yc_nav_bg.png */,
 				FBE4CC7F1EC1AE29008D1652 /* yc_default_place.png */,
 				FBE4CC771EC1951B008D1652 /* yc_search_hotBtn_blue@2x.png */,
 				FBE4CC781EC1951B008D1652 /* yc_search_hotBtn_blue@3x.png */,
@@ -476,6 +503,7 @@
 		FB341E581EB394DD008A4199 /* YCThird */ = {
 			isa = PBXGroup;
 			children = (
+				FBFF0FB41EC3649B007D76EC /* PSRefresh */,
 				FB6E0B391EBB055300B99AF0 /* DXPop */,
 				FBEEEFC51EB671F900DE5471 /* WXSTransition */,
 			);
@@ -659,6 +687,45 @@
 			path = WXSTransition;
 			sourceTree = "<group>";
 		};
+		FBFF0FB41EC3649B007D76EC /* PSRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				FBFF0FBE1EC3649B007D76EC /* PSRefreshHeader */,
+				FBFF0FB91EC3649B007D76EC /* PSRefreshFooter */,
+				FBFF0FB51EC3649B007D76EC /* arrow@2x.png */,
+				FBFF0FB61EC3649B007D76EC /* PSBaseRefreshControl.h */,
+				FBFF0FB71EC3649B007D76EC /* PSBaseRefreshControl.m */,
+				FBFF0FB81EC3649B007D76EC /* PSRefreshConfig.h */,
+				FBFF0FC31EC3649B007D76EC /* UIScrollView+PSRefresh.h */,
+				FBFF0FC41EC3649B007D76EC /* UIScrollView+PSRefresh.m */,
+				FBFF0FC51EC3649B007D76EC /* UIView+PSFrame.h */,
+				FBFF0FC61EC3649B007D76EC /* UIView+PSFrame.m */,
+			);
+			path = PSRefresh;
+			sourceTree = "<group>";
+		};
+		FBFF0FB91EC3649B007D76EC /* PSRefreshFooter */ = {
+			isa = PBXGroup;
+			children = (
+				FBFF0FBA1EC3649B007D76EC /* PSGifRefreshFooter.h */,
+				FBFF0FBB1EC3649B007D76EC /* PSGifRefreshFooter.m */,
+				FBFF0FBC1EC3649B007D76EC /* PSNormalRefreshFooter.h */,
+				FBFF0FBD1EC3649B007D76EC /* PSNormalRefreshFooter.m */,
+			);
+			path = PSRefreshFooter;
+			sourceTree = "<group>";
+		};
+		FBFF0FBE1EC3649B007D76EC /* PSRefreshHeader */ = {
+			isa = PBXGroup;
+			children = (
+				FBFF0FBF1EC3649B007D76EC /* PSGifRefreshHeader.h */,
+				FBFF0FC01EC3649B007D76EC /* PSGifRefreshHeader.m */,
+				FBFF0FC11EC3649B007D76EC /* PSNormalRefreshHeader.h */,
+				FBFF0FC21EC3649B007D76EC /* PSNormalRefreshHeader.m */,
+			);
+			path = PSRefreshHeader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -738,9 +805,11 @@
 				FBEF5FF91EBA111300C5D983 /* yc_img_collect_selete@2x.png in Resources */,
 				FBE4CC7D1EC1951C008D1652 /* yc_search_hotBtn_red@2x.png in Resources */,
 				FBED039A1EB514FF00BEEA75 /* yc_loading_11@2x.png in Resources */,
+				FBFF0FC71EC3649B007D76EC /* arrow@2x.png in Resources */,
 				FBED034D1EB4FDF600BEEA75 /* yc_type_tabbar_normal@3x.png in Resources */,
 				FBED03861EB513EA00BEEA75 /* yc_loading_01@2x.png in Resources */,
 				FBED034F1EB4FE2400BEEA75 /* yc_type_tabbar_selete@3x.png in Resources */,
+				FBFF0FB31EC34CB4007D76EC /* yc_nav_bg.png in Resources */,
 				FBECD14D1EBF0FA50060F2A2 /* yc_home_736h@2x.png in Resources */,
 				FBE4CC801EC1AE29008D1652 /* yc_default_place.png in Resources */,
 				FBEF5FF71EBA111300C5D983 /* yc_img_collect_normal@2x.png in Resources */,
@@ -815,7 +884,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EF721F64B8A95E5E6C7E5B3B /* [CP] Embed Pods Frameworks */ = {
@@ -844,6 +913,7 @@
 				FB341E211EB393EC008A4199 /* AppDelegate.m in Sources */,
 				FB341EBC1EB3B746008A4199 /* YCRecViewController.m in Sources */,
 				FBEEEFEE1EB671F900DE5471 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
+				FBFF0FCA1EC3649B007D76EC /* PSNormalRefreshFooter.m in Sources */,
 				FB341EBF1EB3B754008A4199 /* YCHotViewController.m in Sources */,
 				FBEEEFF21EB671F900DE5471 /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				FB341E771EB3AC78008A4199 /* YCHudManager.m in Sources */,
@@ -857,7 +927,9 @@
 				FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */,
 				FBE8425D1EB742EC0073E1E2 /* YCEditCollectionViewCell.m in Sources */,
 				FBEBD6CA1EC1FA9700014F81 /* YCToolManager.m in Sources */,
+				FBFF0FCC1EC3649B007D76EC /* PSNormalRefreshHeader.m in Sources */,
 				FBEEEFF01EB671F900DE5471 /* WXSTransitionManager+PageAnimation.m in Sources */,
+				FBFF0FCD1EC3649B007D76EC /* UIScrollView+PSRefresh.m in Sources */,
 				FBEEEFF61EB671F900DE5471 /* WXSTransitionProperty.m in Sources */,
 				FB341E7F1EB3ADAF008A4199 /* YCNetManager.m in Sources */,
 				FB341E1E1EB393EC008A4199 /* main.m in Sources */,
@@ -866,12 +938,14 @@
 				FBEEEFE81EB671F900DE5471 /* UIViewController+WXSTransition.m in Sources */,
 				FB341E631EB39B01008A4199 /* YCBaseNavigationController.m in Sources */,
 				FBE4CC761EC1780F008D1652 /* YCSearchTableViewCell.m in Sources */,
+				FBFF0FCE1EC3649B007D76EC /* UIView+PSFrame.m in Sources */,
 				FBEBD6BB1EC1F7C500014F81 /* NFMenuViewController.m in Sources */,
 				FBEBD6B81EC1F7C500014F81 /* NFDisclaimerVC.m in Sources */,
 				FB341E681EB39BA6008A4199 /* YCBaseTabBarController.m in Sources */,
 				FBED03391EB45F8100BEEA75 /* YCTypeCollectionViewCell.m in Sources */,
 				FBEEEFF11EB671F900DE5471 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				FB341E521EB39436008A4199 /* YCBaseViewController.m in Sources */,
+				FBFF0FCB1EC3649B007D76EC /* PSGifRefreshHeader.m in Sources */,
 				FBEEEFF31EB671F900DE5471 /* WXSTransitionManager+TypeTool.m in Sources */,
 				FBEEEFEC1EB671F900DE5471 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				FB341EC21EB3B764008A4199 /* YCNewViewController.m in Sources */,
@@ -888,7 +962,9 @@
 				FBEEEFED1EB671F900DE5471 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */,
 				FBEEEFEB1EB671F900DE5471 /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				FBFF0FC91EC3649B007D76EC /* PSGifRefreshFooter.m in Sources */,
 				FBE842601EB774010073E1E2 /* YCEditBackView.m in Sources */,
+				FBFF0FC81EC3649B007D76EC /* PSBaseRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
