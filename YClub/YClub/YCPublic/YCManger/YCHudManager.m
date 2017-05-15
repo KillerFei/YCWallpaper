@@ -48,6 +48,10 @@
     if (!view) {
         return;
     }
+    MBProgressHUD *preHud = [MBProgressHUD HUDForView:view];
+    if (preHud) {
+        return;
+    }
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
     hud.bezelView.color = [UIColor blackColor];
     hud.mode = MBProgressHUDModeText;

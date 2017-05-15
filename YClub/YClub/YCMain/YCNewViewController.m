@@ -45,7 +45,7 @@
         [self endRefresh];
         return;
     }
-    self.pageNum = 30;
+    self.pageNum = 0;
     [self requestData];
 }
 - (void)loadMoreData
@@ -57,7 +57,6 @@
 - (void)requestNewListData
 {
     [YCNetManager getListPicsWithOrder:@"new" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
@@ -65,8 +64,9 @@
             [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+            self.pageNum-=30;
         }
+        self.loading = NO;
     }];
 }
 - (void)requestTypeListData
@@ -91,22 +91,24 @@
 - (void)requestSearchListData
 {
     [YCNetManager getSearchListWithKey:_searchKey skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        self.loading = NO;
-        self.bFirstLoad = YES;
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
+            [self addLoadMoreFooter];
             if (pics.count < 30) {
                 [YCHudManager hideLoadingInView:self.view];
                 [self.myCollectionView reloadData];
+                 [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
             } else {
                 [self loadMoreData];
             }
         } else {
-            if (error.code == 101 && kArrayIsEmpty(self.dataSource)) {
-                [YCHudManager showMessage:@"网络错误,请检查网络后刷新" InView:self.view];
+            [YCHudManager hideLoadingInView:self.view];
+            if (kArrayIsEmpty(self.dataSource)) {
+                [self addNoResultView];
             } else {
-                [YCHudManager hideLoadingInView:self.view];
+                // 请求完毕 刚开30的整数数据
                 [self.myCollectionView reloadData];
+                [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
             }
         }
     }];
@@ -124,7 +126,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item == self.dataSource.count-12 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
+    if (indexPath.item < self.dataSource.count-6 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];

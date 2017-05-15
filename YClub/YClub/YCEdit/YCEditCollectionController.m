@@ -11,7 +11,6 @@
 #import "YCEditCollectionViewCell.h"
 #import "YCEditBackView.h"
 #import "YCEditDownView.h"
-#import "XZMRefresh.h"
 #import "YCLockView.h"
 #import "DXPopover.h"
 #import "UIScrollView+PSRefresh.h"
@@ -181,10 +180,6 @@
 - (void)addLoadMoreFooter
 {
     if (self.dataSource.count>0) {
-//        [self.myCollectionView xzm_addNormalFooterWithTarget:self action:@selector(loadMoreData)];
-//        self.myCollectionView.xzm_footer.font = YC_Base_TitleFont;
-//        self.myCollectionView.xzm_footer.textColor = YC_TabBar_SeleteColor;
-        
         WeakSelf(weakSelf);
         [self.myCollectionView addRefreshFooterWithClosure:^{
             
@@ -200,7 +195,6 @@
 }
 - (void)endRefresh
 {
-    [self.myCollectionView.xzm_footer endRefreshing];
 }
 #pragma mark - request
 - (void)loadMoreData
