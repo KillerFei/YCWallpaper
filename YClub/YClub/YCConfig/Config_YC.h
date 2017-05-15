@@ -20,6 +20,7 @@
 #define kYCRemoveLaunchViewNoti   @"removeLaunchViewNoti"
 #define kYCFirstVersionKey        @"firstVersionKey"
 #define kYCReadFoodCount          @"readFoodCount"
+#define kYCEditLoadingNoti        @"editLoadingNoti"
 
 //----------------------UI类--------------------------
 //RGB颜色

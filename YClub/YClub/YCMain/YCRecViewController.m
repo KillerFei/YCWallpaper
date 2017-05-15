@@ -24,6 +24,25 @@
     [self registerCell];
     [self requestData];
     [self addRefreshHeader];
+    [self setUpNotification];
+}
+- (void)setUpNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction:) name:kYCEditLoadingNoti object:nil];
+}
+- (void)notiAction:(NSNotification *)noti
+{
+    NSDictionary *info = noti.userInfo;
+    NSArray *dataSource = info[@"data"];
+    if (dataSource.count > self.dataSource.count) {
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:dataSource];
+        [self.myCollectionView reloadData];
+    }
+    NSIndexPath *index = info[@"index"];
+    if (!kObjectIsEmpty(index)) {
+        [self.myCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

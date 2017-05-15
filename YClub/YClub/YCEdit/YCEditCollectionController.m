@@ -337,6 +337,9 @@
 #pragma mark - YCEditBackViewDelegate
 - (void)clickBackBtn
 {
+    if (!_bSearch) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kYCEditLoadingNoti object:nil userInfo:@{@"data":self.dataSource,@"index":_indexPath}];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)clickLoveBtn
