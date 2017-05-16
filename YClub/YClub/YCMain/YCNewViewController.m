@@ -72,7 +72,6 @@
 - (void)requestTypeListData
 {
     [YCNetManager getCategoryListWithTId:_tId skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        self.loading = NO;
         if (!self.bFirstLoad) {
             [YCHudManager hideLoadingInView:self.view];
         } else {
@@ -86,6 +85,7 @@
             [self addNoResultView];
             [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
         }
+        self.loading = NO;
     }];
 }
 - (void)requestSearchListData
@@ -126,7 +126,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item < self.dataSource.count-6 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
+    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];

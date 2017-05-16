@@ -98,6 +98,7 @@
     [self registerCell];
     [self setUpMenuView];
     [self setUpCurrentModel];
+    [self addRefreshNewHeader];
     [self addLoadMoreFooter];
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -177,6 +178,15 @@
     }];
 }
 #pragma mark - addLoadMoreFooter
+- (void)addRefreshNewHeader
+{
+    WeakSelf(weakSelf);
+    [self.myCollectionView addRefreshHeaderWithClosure:^{
+        [weakSelf loadNewData];
+    }];
+    self.myCollectionView.refreshHeaderFont = YC_Base_TitleFont;
+    self.myCollectionView.refreshHeaderTextColor = YC_TabBar_SeleteColor;
+}
 - (void)addLoadMoreFooter
 {
     if (self.dataSource.count>0) {
@@ -185,18 +195,27 @@
             
             [weakSelf loadMoreData];
         }];
-        self.myCollectionView.refreshFooterTextColor = YC_TabBar_SeleteColor;
         self.myCollectionView.refreshFooterFont = YC_Base_TitleFont;
+        self.myCollectionView.refreshFooterTextColor = YC_TabBar_SeleteColor;
         if (_bSearch) {
             self.myCollectionView.isLastPage = YES;
         }
-        
     }
 }
 - (void)endRefresh
 {
+    [self.myCollectionView endRefreshing];
 }
 #pragma mark - request
+- (void)loadNewData
+{
+    if (!kArrayIsEmpty(self.dataSource)) {
+        [self endRefresh];
+        return;
+    }
+    self.pageNum = 0;
+    [self requestData];
+}
 - (void)loadMoreData
 {
     self.pageNum+=30;
@@ -205,7 +224,7 @@
 - (void)requestData
 {
     if (_bSearch) {
-        [self.myCollectionView endRefreshing];
+        [self endRefresh];
         return;
     } else {
         if (!_category) {
@@ -215,36 +234,32 @@
         }
     }
 }
-//- (void)showMessage
-//{
-//    [YCHudManager showMessage:@"没有更多搜索结果" InView:self.view];
-//}
 - (void)requestNewListData
 {
     [YCNetManager getListPicsWithOrder:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
         } else {
             [self addNoResultView];
-            [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+            self.pageNum-=30;
         }
+        self.loading = NO;
     }];
 }
 - (void)requestCaListData
 {
     [YCNetManager getCategoryListWithTId:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
-        self.loading = NO;
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
             [self.myCollectionView reloadData];
         } else {
             [self addNoResultView];
-            [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+            self.pageNum-=30;
         }
+        self.loading = NO;
     }];
 }
 #pragma mark - collection
@@ -262,7 +277,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !_bSearch && !self.loading)
+    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !_bSearch && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];

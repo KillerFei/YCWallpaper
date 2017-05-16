@@ -78,7 +78,7 @@
         
         UIEdgeInsets insets = self.scrollView.contentInset;
         insets.left += self.width;
-        self.scrollView.contentInset = insets;
+//        self.scrollView.contentInset = insets;
         
         // 回调
         BLOCK_EXE(_closure)

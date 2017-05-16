@@ -67,7 +67,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item < self.dataSource.count-6 && self.scrollBottom && !self.loading)
+    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];
