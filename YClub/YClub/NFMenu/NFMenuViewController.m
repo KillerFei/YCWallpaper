@@ -7,9 +7,10 @@
 //
 
 #import "NFMenuViewController.h"
-#import "NFDisclaimerVC.h"
+#import "YCCollectViewController.h"
 #import "NFMenuTableViewCell.h"
 #import "NFMenuHeaderView.h"
+#import "NFDisclaimerVC.h"
 
 typedef NS_ENUM(NSInteger, NFMenuType)
 {
@@ -28,7 +29,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
 - (UITableView *)myTableView
 {
     if (!_myTableView) {
-        _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49) style:UITableViewStyleGrouped];
+        _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49) style:UITableViewStylePlain];
         _myTableView.rowHeight = 55;
         _myTableView.delegate   = self;
         _myTableView.dataSource = self;
@@ -36,6 +37,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
         _myTableView.separatorColor = YC_Base_LineColor;
         [_myTableView registerClass:[NFMenuTableViewCell class] forCellReuseIdentifier:kNFMenuCellIdentifier];
         _myTableView.tableHeaderView = [[NFMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 160)];
+        _myTableView.tableFooterView = [[UIView alloc] init];
     }
     return _myTableView;
 }
@@ -48,12 +50,9 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initItemMenu];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.myTableView];
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [self initItemMenu];
 }
 - (void)initItemMenu
 {
@@ -102,13 +101,20 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
     NSArray *items = self.dataSource[indexPath.section];
     NSInteger item = [items[indexPath.row] integerValue];
     switch (item) {
-        case kNFMenuType_Clear:
+        case kNFMenuType_Clear: {
             myCell.accessoryType = UITableViewCellAccessoryNone;
             myCell.iconView.image = [UIImage imageNamed:@"nf_menu_clear"];
             myCell.titleLabel.text = @"清除缓存";
             myCell.titleLabel.textColor = RGB(255, 47, 57);
             myCell.cacheLabel.hidden = NO;
-            myCell.cacheLabel.text = [NSString stringWithFormat:@"%.02fM",[[SDImageCache sharedImageCache] getSize]/1024.f/1024];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                NSString *str = [NSString stringWithFormat:@"%.02fM",[[SDImageCache sharedImageCache] getSize]/1024.f/1024];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    myCell.cacheLabel.text = str;
+                });
+            });
+        }
             break;
         case kNFMenuType_Judge:
             myCell.iconView.image = [UIImage imageNamed:@"nf_menu_support"];
@@ -141,6 +147,8 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
         case kNFMenuType_Declaration:
             [self showDeclaration];
             break;
+        case kNFMenuType_Love:
+            [self gotoCollectVC];
         default:
             break;
     }
@@ -170,5 +178,13 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
     NSString *version = [YCToolManager currentVerson];
     [[NSUserDefaults standardUserDefaults] setObject:version forKey:kYCVersionCommentKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+// 我的收藏
+- (void)gotoCollectVC
+{
+    YCCollectViewController *collectVC = [[YCCollectViewController alloc] init];
+    collectVC.navTitle = @"我的收藏";
+    collectVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:collectVC animated:YES];
 }
 @end

@@ -33,6 +33,7 @@
         _loveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_normal"] forState:UIControlStateNormal];
         [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_selete"] forState:UIControlStateSelected];
+        [_loveBtn addTarget:self action:@selector(loveBtnAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loveBtn;
 }
@@ -75,6 +76,13 @@
 {
     if (_delegate && [_delegate respondsToSelector:@selector(clickBackBtn)]) {
         [_delegate clickBackBtn];
+    }
+}
+#pragma mark - loveBtnAction
+- (void)loveBtnAction
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickLoveBtn)]) {
+        [_delegate clickLoveBtn];
     }
 }
 @end

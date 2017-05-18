@@ -29,6 +29,8 @@
 		FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */; };
 		FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */; };
 		FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */; };
+		FBAC2E7C1ECBE43500AD4E26 /* YCDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */; };
+		FBAC2E7F1ECBEAC400AD4E26 /* YCCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */; };
 		FBE4CC761EC1780F008D1652 /* YCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE4CC751EC1780F008D1652 /* YCSearchTableViewCell.m */; };
 		FBE4CC7B1EC1951C008D1652 /* yc_search_hotBtn_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE4CC771EC1951B008D1652 /* yc_search_hotBtn_blue@2x.png */; };
 		FBE4CC7C1EC1951C008D1652 /* yc_search_hotBtn_blue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE4CC781EC1951B008D1652 /* yc_search_hotBtn_blue@3x.png */; };
@@ -181,6 +183,10 @@
 		FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
 		FB8B11031EC01F310005110C /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
 		FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		FBAC2E7A1ECBE43500AD4E26 /* YCDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCDBManager.h; sourceTree = "<group>"; };
+		FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCDBManager.m; sourceTree = "<group>"; };
+		FBAC2E7D1ECBEAC400AD4E26 /* YCCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCollectViewController.h; sourceTree = "<group>"; };
+		FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCollectViewController.m; sourceTree = "<group>"; };
 		FBE4CC741EC1780F008D1652 /* YCSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSearchTableViewCell.h; sourceTree = "<group>"; };
 		FBE4CC751EC1780F008D1652 /* YCSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSearchTableViewCell.m; sourceTree = "<group>"; };
 		FBE4CC771EC1951B008D1652 /* yc_search_hotBtn_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_search_hotBtn_blue@2x.png"; sourceTree = "<group>"; };
@@ -519,6 +525,8 @@
 				FB341E761EB3AC78008A4199 /* YCHudManager.m */,
 				FBEBD6C81EC1FA9700014F81 /* YCToolManager.h */,
 				FBEBD6C91EC1FA9700014F81 /* YCToolManager.m */,
+				FBAC2E7A1ECBE43500AD4E26 /* YCDBManager.h */,
+				FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */,
 			);
 			path = YCManger;
 			sourceTree = "<group>";
@@ -581,6 +589,8 @@
 				FBEBD6B51EC1F7C500014F81 /* NFMenuTableViewCell.m */,
 				FBEBD6B61EC1F7C500014F81 /* NFMenuViewController.h */,
 				FBEBD6B71EC1F7C500014F81 /* NFMenuViewController.m */,
+				FBAC2E7D1ECBEAC400AD4E26 /* YCCollectViewController.h */,
+				FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */,
 			);
 			path = NFMenu;
 			sourceTree = "<group>";
@@ -916,6 +926,7 @@
 				FBFF0FCA1EC3649B007D76EC /* PSNormalRefreshFooter.m in Sources */,
 				FB341EBF1EB3B754008A4199 /* YCHotViewController.m in Sources */,
 				FBEEEFF21EB671F900DE5471 /* WXSTransitionManager+SystermAnimation.m in Sources */,
+				FBAC2E7C1ECBE43500AD4E26 /* YCDBManager.m in Sources */,
 				FB341E771EB3AC78008A4199 /* YCHudManager.m in Sources */,
 				FB341E741EB3ABAD008A4199 /* UIView+YC_Ex.m in Sources */,
 				FBE842631EB774170073E1E2 /* YCEditDownView.m in Sources */,
@@ -959,6 +970,7 @@
 				FB341EB01EB3AFE8008A4199 /* YCMainViewController.m in Sources */,
 				FBEEEFEA1EB671F900DE5471 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				FBEEEFF51EB671F900DE5471 /* WXSTransitionManager.m in Sources */,
+				FBAC2E7F1ECBEAC400AD4E26 /* YCCollectViewController.m in Sources */,
 				FBEEEFED1EB671F900DE5471 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */,
 				FBEEEFEB1EB671F900DE5471 /* WXSTransitionManager+BoomAnimation.m in Sources */,

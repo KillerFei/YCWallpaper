@@ -387,7 +387,8 @@
 }
 - (void)clickLoveBtn
 {
-    
+    [[YCDBManager shareInstance] savePic:_currentModel];
+    [YCHudManager showMessage:@"已加入收藏" InView:self.view];
 }
 #pragma mark - YCEditDownViewDelegate
 - (void)clickDownBtn

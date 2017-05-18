@@ -50,7 +50,7 @@
 }
 - (void)setUpCollectionView
 {
-    _myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64-49) collectionViewLayout:_layOut];
+    _myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64) collectionViewLayout:_layOut];
     _myCollectionView.backgroundColor = YC_Base_BgGrayColor;
     _myCollectionView.showsVerticalScrollIndicator = NO;
     _myCollectionView.delegate = self;

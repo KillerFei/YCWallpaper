@@ -16,6 +16,7 @@
 #import "UIView+YC_Ex.h"
 #import "NSURL+YC_EX.h"
 #import "YCToolManager.h"
+#import "YCDBManager.h"
 
 //------------------- 三方 -------------
 #import "FMDB.h"

@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSString *ename;
 @property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSString *tId;
+
+@property (nonatomic, strong) NSString *reserve;
 @end

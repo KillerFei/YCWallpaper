@@ -36,7 +36,6 @@
     NFMenuViewController *thirdVC = [[NFMenuViewController alloc] init];
     YCBaseNavigationController *thirdNav = [[YCBaseNavigationController alloc] initWithRootViewController:thirdVC];
     thirdVC.title = @"我的";
-    
     self.viewControllers = @[mainNav, typeNav, thirdNav];
 }
 #pragma mark - set TabbarItems

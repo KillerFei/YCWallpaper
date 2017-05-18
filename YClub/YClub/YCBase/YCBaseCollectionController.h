@@ -38,4 +38,6 @@
 - (void)addNoResultView;
 - (void)removeNoResultView;
 
+- (void)tapAction;
+
 @end
