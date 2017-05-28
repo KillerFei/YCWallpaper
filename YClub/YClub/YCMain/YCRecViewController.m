@@ -50,14 +50,16 @@
 }
 - (void)loadMoreData
 {
+    if (self.loading) {
+        [self.myCollectionView.mj_footer endRefreshing];
+        return;
+    }
+    self.loading = YES;
     self.pageNum+=30;
     [self requestData];
 }
 - (void)requestData
 {
-    if (self.loading) {
-        return;
-    }
     [YCNetManager getListPicsWithOrder:@"mixin" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
@@ -85,7 +87,6 @@
 {
     if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
-        self.loading = YES;
         [self loadMoreData];
     }
 }
@@ -93,6 +94,7 @@
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     YCEditCollectionController *editVC = [[YCEditCollectionController alloc] init];
+    editVC.presentVC  = self;
     editVC.category   = NO;
     editVC.order      = @"mixin";
     editVC.pageNum    = self.pageNum+30;

@@ -72,6 +72,7 @@
         return;
     }
     YCEditCollectionController *editVC = [[YCEditCollectionController alloc] init];
+    editVC.presentVC  = self;
     editVC.dataSource = self.dataSource;
     editVC.bSearch    = YES;
     editVC.pageNum    = self.pageNum+30;

@@ -129,12 +129,12 @@
     self.myCollectionView.delegate = self;
     self.myCollectionView.dataSource = self;
     [self.view addSubview:self.myCollectionView];
-    [self.myCollectionView scrollToItemAtIndexPath:_indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.myCollectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 - (void)setUpCurrentModel
 {
     if (!kArrayIsEmpty(self.dataSource)) {
-        _currentModel = self.dataSource[_indexPath.section];
+        _currentModel = self.dataSource[self.indexPath.section];
     }
 }
 - (void)registerCell
@@ -218,14 +218,18 @@
 }
 - (void)loadMoreData
 {
+    if (self.loading) {
+        [self.myCollectionView.mj_footer endRefreshing];
+        return;
+    }
+    self.loading = YES;
     self.pageNum+=30;
     [self requestData];
 }
 - (void)requestData
 {
     if (_bSearch) {
-        [self endRefresh];
-        return;
+        [self requestSearchListData];
     } else {
         if (!_category) {
             [self requestNewListData];
@@ -243,7 +247,6 @@
             [self.myCollectionView reloadData];
         } else {
             [self addNoResultView];
-            self.pageNum-=30;
         }
         self.loading = NO;
     }];
@@ -257,7 +260,25 @@
             [self.myCollectionView reloadData];
         } else {
             [self addNoResultView];
-            self.pageNum-=30;
+        }
+        self.loading = NO;
+    }];
+}
+- (void)requestSearchListData
+{
+    [YCNetManager getSearchListWithKey:_order skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        
+        [self endRefresh];
+        if (!kArrayIsEmpty(pics)) {
+            [self.dataSource addObjectsFromArray:pics];
+            [self.myCollectionView reloadData];
+            if (pics.count < 30) {
+                [self.myCollectionView endRefreshing];
+                self.myCollectionView.isLastPage = YES;
+            }
+        } else {
+            [self.myCollectionView endRefreshing];
+            self.myCollectionView.isLastPage = YES;
         }
         self.loading = NO;
     }];
@@ -271,15 +292,14 @@
 {
     YCEditCollectionViewCell *baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     [baseCell setModel:self.dataSource[indexPath.item]];
-    _currentModel = self.dataSource[indexPath.item];
-    _indexPath    = indexPath;
+    _currentModel     = self.dataSource[indexPath.item];
+    self.indexPath    = indexPath;
     return baseCell;
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !_bSearch && !self.loading)
+    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
-        self.loading = YES;
         [self loadMoreData];
     }
 }
@@ -360,18 +380,12 @@
 #pragma mark - scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (_bSearch) {
-        return;
-    }
     if (self.lastOffSetX < scrollView.contentOffset.x) {
         self.scrollBottom = YES;
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    if (_bSearch) {
-        return;
-    }
     self.lastOffSetX = scrollView.contentOffset.x;
 }
 - (void)didReceiveMemoryWarning {
@@ -380,12 +394,9 @@
 #pragma mark - YCEditBackViewDelegate
 - (void)clickBackBtn
 {
-    YCBaseCollectionController *preVC = (YCBaseCollectionController *)self.presentedViewController;
-    [preVC.dataSource removeAllObjects];
-    [preVC.dataSource addObjectsFromArray:self.dataSource];
-    preVC.pageNum = self.pageNum;
-    preVC.indexPath = self.indexPath;
-    preVC.bEdit = YES;
+    _presentVC.pageNum = self.pageNum;
+    _presentVC.indexPath = self.indexPath;
+    _presentVC.bEdit = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)clickLoveBtn
@@ -412,7 +423,7 @@
 }
 - (void)downLoadImage
 {
-    YCEditCollectionViewCell *cell = (YCEditCollectionViewCell *)[self.myCollectionView cellForItemAtIndexPath:_indexPath];
+    YCEditCollectionViewCell *cell = (YCEditCollectionViewCell *)[self.myCollectionView cellForItemAtIndexPath:self.indexPath];
     UIImage *img = [cell getShowImg];
     if (!img) {
         [YCHudManager showHudMessage:@"下载中..." InView:self.view];

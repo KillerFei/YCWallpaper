@@ -47,14 +47,16 @@
 }
 - (void)loadMoreData
 {
+    if (self.loading) {
+        [self.myCollectionView.mj_footer endRefreshing];
+        return;
+    }
+    self.loading = YES;
     self.pageNum+=30;
     [self requestData];
 }
 - (void)requestData
 {
-    if (self.loading) {
-        return;
-    }
     [YCNetManager getListPicsWithOrder:@"hot" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
@@ -90,6 +92,7 @@
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     YCEditCollectionController *editVC = [[YCEditCollectionController alloc] init];
+    editVC.presentVC  = self;
     editVC.category = NO;
     editVC.order    = @"hot";
     editVC.pageNum  = self.pageNum+30;

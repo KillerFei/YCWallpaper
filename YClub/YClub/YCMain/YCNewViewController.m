@@ -50,6 +50,11 @@
 }
 - (void)loadMoreData
 {
+    if (self.loading) {
+        [self.myCollectionView.mj_footer endRefreshing];
+        return;
+    }
+    self.loading = YES;
     self.pageNum+=30;
     [self requestData];
 }
@@ -64,7 +69,6 @@
             [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            self.pageNum-=30;
         }
         self.loading = NO;
     }];
@@ -91,26 +95,27 @@
 - (void)requestSearchListData
 {
     [YCNetManager getSearchListWithKey:_searchKey skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
+        
+        if (!self.bFirstLoad) {
+            [YCHudManager hideLoadingInView:self.view];
+        } else {
+            [self endRefresh];
+        }
         if (!kArrayIsEmpty(pics)) {
             [self.dataSource addObjectsFromArray:pics];
+            [self.myCollectionView reloadData];
             [self addLoadMoreFooter];
             if (pics.count < 30) {
-                [YCHudManager hideLoadingInView:self.view];
-                [self.myCollectionView reloadData];
                  [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
-            } else {
-                [self loadMoreData];
             }
         } else {
-            [YCHudManager hideLoadingInView:self.view];
-            if (kArrayIsEmpty(self.dataSource)) {
-                [self addNoResultView];
+            if (!kArrayIsEmpty(self.dataSource)) {
+                 [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
             } else {
-                // 请求完毕 刚开30的整数数据
-                [self.myCollectionView reloadData];
-                [self.myCollectionView.mj_footer endRefreshingWithNoMoreData];
+                [YCHudManager showMessage:@"暂无搜索结果" InView:self.view];
             }
         }
+        self.loading = NO;
     }];
 }
 #pragma mark - collection
@@ -126,9 +131,8 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && kStringIsEmpty(_searchKey) && !self.loading)
+    if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
-        self.loading = YES;
         [self loadMoreData];
     }
 }
@@ -136,11 +140,13 @@
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     YCEditCollectionController *editVC = [[YCEditCollectionController alloc] init];
+    editVC.presentVC  = self;
     if (!kStringIsEmpty(_tId)) {
         editVC.category = YES;
         editVC.order    = _tId;
     } else if (!kStringIsEmpty(_searchKey)){
         editVC.dataSource = self.dataSource;
+        editVC.order      = _searchKey;
         editVC.bSearch    = YES;
     } else {
         editVC.category = NO;
@@ -154,18 +160,12 @@
 #pragma mark - scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!kStringIsEmpty(_searchKey)) {
-        return;
-    }
     if (self.lastOffSetY<scrollView.contentOffset.y) {
         self.scrollBottom = YES;
     }
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    if (!kStringIsEmpty(_searchKey)) {
-        return;
-    }
     self.lastOffSetY = scrollView.contentOffset.y;
 }
 - (void)didReceiveMemoryWarning {
