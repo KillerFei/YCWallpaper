@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D9E3F5B1571AE329D5062FE /* libPods-YClub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D86A49A5CA3721FB2B5C55 /* libPods-YClub.a */; };
+		FB23486B1ED94730001ECB3C /* yc_nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2348681ED94730001ECB3C /* yc_nav_back.png */; };
+		FB23486C1ED94730001ECB3C /* yc_nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2348691ED94730001ECB3C /* yc_nav_back@2x.png */; };
+		FB23486D1ED94730001ECB3C /* yc_nav_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB23486A1ED94730001ECB3C /* yc_nav_back@3x.png */; };
 		FB341E1E1EB393EC008A4199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E1D1EB393EC008A4199 /* main.m */; };
 		FB341E211EB393EC008A4199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E201EB393EC008A4199 /* AppDelegate.m */; };
 		FB341E291EB393EC008A4199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB341E281EB393EC008A4199 /* Assets.xcassets */; };
@@ -85,8 +88,6 @@
 		FBED03AD1EB5168F00BEEA75 /* yc_loading_20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBED03A31EB5168F00BEEA75 /* yc_loading_20@2x.png */; };
 		FBED03AE1EB5168F00BEEA75 /* yc_loading_21@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBED03A41EB5168F00BEEA75 /* yc_loading_21@2x.png */; };
 		FBEEEF581EB63A3700DE5471 /* yc_no_result@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEEEF571EB63A3700DE5471 /* yc_no_result@2x.png */; };
-		FBEEEF5B1EB644C800DE5471 /* yc_nav_leftback@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEEEF591EB644C800DE5471 /* yc_nav_leftback@3x.png */; };
-		FBEEEF5C1EB644C800DE5471 /* yc_nav_leftback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBEEEF5A1EB644C800DE5471 /* yc_nav_leftback@2x.png */; };
 		FBEEEF671EB6660800DE5471 /* YCEditCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEEEF661EB6660800DE5471 /* YCEditCollectionController.m */; };
 		FBEEEFE71EB671F900DE5471 /* UINavigationController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEEEFC71EB671F900DE5471 /* UINavigationController+WXSTransition.m */; };
 		FBEEEFE81EB671F900DE5471 /* UIViewController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEEEFC91EB671F900DE5471 /* UIViewController+WXSTransition.m */; };
@@ -135,6 +136,9 @@
 		0081816E5F5B0E86654B6669 /* Pods-YClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YClub/Pods-YClub.debug.xcconfig"; sourceTree = "<group>"; };
 		1B4DF555FE770C2E5B283C6B /* Pods-YClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-YClub/Pods-YClub.release.xcconfig"; sourceTree = "<group>"; };
 		D5D86A49A5CA3721FB2B5C55 /* libPods-YClub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YClub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2348681ED94730001ECB3C /* yc_nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_nav_back.png; sourceTree = "<group>"; };
+		FB2348691ED94730001ECB3C /* yc_nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_nav_back@2x.png"; sourceTree = "<group>"; };
+		FB23486A1ED94730001ECB3C /* yc_nav_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_nav_back@3x.png"; sourceTree = "<group>"; };
 		FB341E191EB393EC008A4199 /* YClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB341E1D1EB393EC008A4199 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FB341E1F1EB393EC008A4199 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -252,8 +256,6 @@
 		FBED03A31EB5168F00BEEA75 /* yc_loading_20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_loading_20@2x.png"; sourceTree = "<group>"; };
 		FBED03A41EB5168F00BEEA75 /* yc_loading_21@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_loading_21@2x.png"; sourceTree = "<group>"; };
 		FBEEEF571EB63A3700DE5471 /* yc_no_result@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_no_result@2x.png"; sourceTree = "<group>"; };
-		FBEEEF591EB644C800DE5471 /* yc_nav_leftback@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yc_nav_leftback@3x.png"; path = "YCLoading/yc_nav_leftback@3x.png"; sourceTree = "<group>"; };
-		FBEEEF5A1EB644C800DE5471 /* yc_nav_leftback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yc_nav_leftback@2x.png"; path = "YCLoading/yc_nav_leftback@2x.png"; sourceTree = "<group>"; };
 		FBEEEF651EB6660800DE5471 /* YCEditCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEditCollectionController.h; sourceTree = "<group>"; };
 		FBEEEF661EB6660800DE5471 /* YCEditCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEditCollectionController.m; sourceTree = "<group>"; };
 		FBEEEFC61EB671F900DE5471 /* UINavigationController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WXSTransition.h"; sourceTree = "<group>"; };
@@ -488,8 +490,6 @@
 				FBEF5FF31EBA111300C5D983 /* yc_img_share@2x.png */,
 				FBEF5FF41EBA111300C5D983 /* yc_img_share@3x.png */,
 				FBEEEF571EB63A3700DE5471 /* yc_no_result@2x.png */,
-				FBEEEF591EB644C800DE5471 /* yc_nav_leftback@3x.png */,
-				FBEEEF5A1EB644C800DE5471 /* yc_nav_leftback@2x.png */,
 				FBED037E1EB50C5E00BEEA75 /* yc_my_tabbar_normal@3x.png */,
 				FBED036E1EB506D300BEEA75 /* yc_my_tabbar_normal@2x.png */,
 				FBED036F1EB506D300BEEA75 /* yc_my_tabbar_selete@2x.png */,
@@ -502,6 +502,9 @@
 				FBED034B1EB4FDF600BEEA75 /* yc_type_tabbar_normal@3x.png */,
 				FBED03461EB4FD5600BEEA75 /* yc_type_tabbar_selete@2x.png */,
 				FBED034E1EB4FE2400BEEA75 /* yc_type_tabbar_selete@3x.png */,
+				FB2348681ED94730001ECB3C /* yc_nav_back.png */,
+				FB2348691ED94730001ECB3C /* yc_nav_back@2x.png */,
+				FB23486A1ED94730001ECB3C /* yc_nav_back@3x.png */,
 			);
 			path = YCResource;
 			sourceTree = "<group>";
@@ -798,10 +801,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB23486D1ED94730001ECB3C /* yc_nav_back@3x.png in Resources */,
 				FBED03801EB50C5E00BEEA75 /* yc_my_tabbar_normal@3x.png in Resources */,
 				FBED03831EB50CDF00BEEA75 /* yc_my_tabbar_selete@3x.png in Resources */,
 				FBED036C1EB5042500BEEA75 /* yc_main_tabbar_selete@2x.png in Resources */,
 				FBF2F26D1EC090EF008C1F6B /* yc_nav_search@2x.png in Resources */,
+				FB23486C1ED94730001ECB3C /* yc_nav_back@2x.png in Resources */,
 				FBEF5FF51EBA111300C5D983 /* yc_img_back@2x.png in Resources */,
 				FBED03701EB506D300BEEA75 /* yc_my_tabbar_normal@2x.png in Resources */,
 				FBED03931EB514FF00BEEA75 /* yc_loading_04@2x.png in Resources */,
@@ -825,13 +830,11 @@
 				FBEF5FF71EBA111300C5D983 /* yc_img_collect_normal@2x.png in Resources */,
 				FBEF60001EBA111300C5D983 /* yc_img_share@3x.png in Resources */,
 				FBECD1471EBF0F7F0060F2A2 /* yc_home_480h@2x.png in Resources */,
-				FBEEEF5C1EB644C800DE5471 /* yc_nav_leftback@2x.png in Resources */,
 				FBED036D1EB5042500BEEA75 /* yc_main_tabbar_selete@3x.png in Resources */,
 				FBED03961EB514FF00BEEA75 /* yc_loading_07@2x.png in Resources */,
 				FBED03AC1EB5168F00BEEA75 /* yc_loading_19@2x.png in Resources */,
 				FBED03A51EB5168F00BEEA75 /* yc_loading_12@2x.png in Resources */,
 				FBEF5FFA1EBA111300C5D983 /* yc_img_collect_selete@3x.png in Resources */,
-				FBEEEF5B1EB644C800DE5471 /* yc_nav_leftback@3x.png in Resources */,
 				FBEF5FFB1EBA111300C5D983 /* yc_img_download@2x.png in Resources */,
 				FBED03AA1EB5168F00BEEA75 /* yc_loading_17@2x.png in Resources */,
 				FBED03971EB514FF00BEEA75 /* yc_loading_08@2x.png in Resources */,
@@ -848,6 +851,7 @@
 				FBED03711EB506D300BEEA75 /* yc_my_tabbar_selete@2x.png in Resources */,
 				FBED03991EB514FF00BEEA75 /* yc_loading_10@2x.png in Resources */,
 				FBECD14C1EBF0FA50060F2A2 /* yc_home_667h@2x.png in Resources */,
+				FB23486B1ED94730001ECB3C /* yc_nav_back.png in Resources */,
 				FBED03A71EB5168F00BEEA75 /* yc_loading_14@2x.png in Resources */,
 				FBED036B1EB5042500BEEA75 /* yc_main_tabbar_normal@3x.png in Resources */,
 				FBED03491EB4FD6000BEEA75 /* yc_type_tabbar_normal@2x.png in Resources */,

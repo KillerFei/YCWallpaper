@@ -25,6 +25,17 @@
     [self requestData];
     [self addRefreshHeader];
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.bEdit) {
+        [self.myCollectionView reloadData];
+        if (!kObjectIsEmpty(self.indexPath)) {
+            [self.myCollectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        }
+        self.bEdit = NO;
+    }
+}
 - (void)loadNewData
 {
     if (!kArrayIsEmpty(self.dataSource)) {
@@ -41,6 +52,9 @@
 }
 - (void)requestData
 {
+    if (self.loading) {
+        return;
+    }
     [YCNetManager getListPicsWithOrder:@"hot" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
@@ -49,7 +63,6 @@
             [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            self.pageNum-=30;
         }
         self.loading = NO;
     }];
@@ -67,7 +80,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !self.loading)
+    if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];

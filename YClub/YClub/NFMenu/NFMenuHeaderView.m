@@ -36,7 +36,7 @@
         _versionLabel.font = YC_Base_ContentFont;
         _versionLabel.text = [NSString stringWithFormat:@"V%@", [YCToolManager currentVerson]];
         _versionLabel.textAlignment = NSTextAlignmentCenter;
-        _versionLabel.textColor = YC_Base_ContentColor;
+        _versionLabel.textColor = YC_Base_TitleColor;
         [self addSubview:_versionLabel];
     }
     return self;

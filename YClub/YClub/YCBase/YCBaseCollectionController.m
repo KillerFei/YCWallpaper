@@ -80,12 +80,12 @@
 }
 - (void)addLoadMoreFooter
 {
-    if (!_bFirstLoad) {
+    if (!_bFirstLoad && !kArrayIsEmpty(self.dataSource)) {
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
         [footer setTitle:@"" forState:MJRefreshStateIdle];
         [footer setTitle:@"上拉加载更多壁纸^_^" forState:MJRefreshStatePulling];
         [footer setTitle:@"加载中...^_^" forState:MJRefreshStateRefreshing];
-          [footer setTitle:@"没有更多了o>_<o" forState:MJRefreshStateNoMoreData];
+        [footer setTitle:@"没有更多了o>_<o" forState:MJRefreshStateNoMoreData];
         _myCollectionView.mj_footer = footer;
         _bFirstLoad = YES;
     }
@@ -120,6 +120,7 @@
         [self.view addSubview:self.noResultView];
     } else {
         [YCHudManager showMessage:@"网络出现状况~T_T~" InView:self.navigationController.view];
+        self.pageNum-=30;
     }
 }
 - (void)removeNoResultView

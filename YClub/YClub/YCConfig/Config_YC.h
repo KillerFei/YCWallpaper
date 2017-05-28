@@ -32,11 +32,15 @@
 #define BOLD_FONT(F)               [UIFont boldSystemFontOfSize:F]
 
 
-#define YC_Nav_TitleColor          RGB(106, 106, 106)
+//#define YC_Nav_TitleColor          RGB(106, 106, 106)
+#define YC_Nav_TitleColor          RGB(93, 109, 121)
 #define YC_Nav_TitleFont           BOLD_FONT(16)
 
-#define YC_Base_TitleColor         RGB(106, 106, 106)
+//#define YC_Base_TitleColor         RGB(106, 106, 106)
+#define YC_Base_TitleColor         RGB(93, 109, 121)
 #define YC_Base_TitleFont          SYSTEM_FONT(15)
+
+
 
 #define YC_Base_ContentColor       RGB(149, 149, 149)
 #define YC_Base_ContentFont        SYSTEM_FONT(13)
@@ -50,18 +54,6 @@
 #define YC_Base_Scale              KSCREEN_WIDTH/375.f
 //基本UI
 #define YC_TabBar_SeleteColor      RGB(43, 157, 204)
-
-//#define DT_Base_TitleColor         RGB(112, 112, 112)
-//#define DT_Base_TitleColor         RGB(79, 79, 79)
-#define DT_Base_TitleColor         RGB(106, 106, 106)
-#define DT_Base_TitleFont          SYSTEM_FONT(15)
-
-#define DT_Base_ContentColor       RGB(149, 149, 149)
-#define DT_Base_ContentFont        SYSTEM_FONT(13)
-
-#define DT_Base_LineColor          RGB(225, 225, 225)
-//#define DT_Base_EdgeColor          RGB(254, 203, 47)
-#define DT_Base_EdgeColor          RGB(255, 204, 0)
 #define YC_Base_GrayEdgeColor      RGB(179, 179, 179)
 //----------------------设备类--------------------------
 //获取屏幕 宽度、高度
@@ -77,8 +69,6 @@
 #define IS_IPHONE_5             (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6             (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P            (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-
-
 
 //----------------------－引用－----------------------------
 //Block
@@ -106,8 +96,5 @@
 #define kUserDefaults       [NSUserDefaults standardUserDefaults]
 #define kNotificationCenter [NSNotificationCenter defaultCenter]
 #define kAppVersion         [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-
-
-
 
 #endif /* Config_YC_h */

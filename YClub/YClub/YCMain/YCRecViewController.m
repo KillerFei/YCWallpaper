@@ -24,24 +24,16 @@
     [self registerCell];
     [self requestData];
     [self addRefreshHeader];
-    [self setUpNotification];
 }
-- (void)setUpNotification
+- (void)viewWillAppear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction:) name:kYCEditLoadingNoti object:nil];
-}
-- (void)notiAction:(NSNotification *)noti
-{
-    NSDictionary *info = noti.userInfo;
-    NSArray *dataSource = info[@"data"];
-    if (dataSource.count > self.dataSource.count) {
-        [self.dataSource removeAllObjects];
-        [self.dataSource addObjectsFromArray:dataSource];
+    [super viewWillAppear:animated];
+    if (self.bEdit) {
         [self.myCollectionView reloadData];
-    }
-    NSIndexPath *index = info[@"index"];
-    if (!kObjectIsEmpty(index)) {
-        [self.myCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        if (!kObjectIsEmpty(self.indexPath)) {
+            [self.myCollectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        }
+        self.bEdit = NO;
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -63,6 +55,9 @@
 }
 - (void)requestData
 {
+    if (self.loading) {
+        return;
+    }
     [YCNetManager getListPicsWithOrder:@"mixin" skip:@(self.pageNum) callBack:^(NSError *error, NSArray *pics) {
         [self endRefresh];
         if (!kArrayIsEmpty(pics)) {
@@ -71,7 +66,6 @@
             [self addLoadMoreFooter];
         } else {
             [self addNoResultView];
-            self.pageNum-=30;
         }
         self.loading = NO;
     }];
@@ -89,7 +83,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item > self.dataSource.count-6 && self.scrollBottom && !self.loading)
+    if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
         self.loading = YES;
         [self loadMoreData];

@@ -57,7 +57,7 @@
         [_spiner stopAnimating];
     }];
 }
-- (UIImage *)showImg
+- (UIImage *)getShowImg
 {
     return _imageView.image;
 }

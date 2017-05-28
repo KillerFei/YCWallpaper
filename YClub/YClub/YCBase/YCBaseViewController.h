@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString *navTitle;
 
+
+
 - (void)hideNavBar:(BOOL)isHide;
 - (void)setLeftBackNavItem;
 

@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSMutableArray   *dataSource;
 @property (nonatomic, strong) UICollectionView *myCollectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *layOut;
-
+@property (nonatomic, strong) NSIndexPath      *indexPath;
 @property (nonatomic, strong) UIView           *noResultView;
 @property (nonatomic, assign) CGFloat          lastOffSetY;
 @property (nonatomic, assign) CGFloat          lastOffSetX;
@@ -22,6 +22,7 @@
 @property (nonatomic, assign) BOOL             loading;
 @property (nonatomic, assign) BOOL             bFirstLoad;
 @property (nonatomic, assign) BOOL             scrollBottom;
+@property (nonatomic, assign) BOOL             bEdit;
 
 - (void)setUpLayOut;
 - (void)setUpCollectionView;

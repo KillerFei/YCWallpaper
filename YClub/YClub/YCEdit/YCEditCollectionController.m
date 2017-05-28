@@ -380,9 +380,12 @@
 #pragma mark - YCEditBackViewDelegate
 - (void)clickBackBtn
 {
-    if (!_bSearch) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kYCEditLoadingNoti object:nil userInfo:@{@"data":self.dataSource,@"index":_indexPath}];
-    }
+    YCBaseCollectionController *preVC = (YCBaseCollectionController *)self.presentedViewController;
+    [preVC.dataSource removeAllObjects];
+    [preVC.dataSource addObjectsFromArray:self.dataSource];
+    preVC.pageNum = self.pageNum;
+    preVC.indexPath = self.indexPath;
+    preVC.bEdit = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)clickLoveBtn
@@ -410,7 +413,7 @@
 - (void)downLoadImage
 {
     YCEditCollectionViewCell *cell = (YCEditCollectionViewCell *)[self.myCollectionView cellForItemAtIndexPath:_indexPath];
-    UIImage *img = [cell showImg];
+    UIImage *img = [cell getShowImg];
     if (!img) {
         [YCHudManager showHudMessage:@"下载中..." InView:self.view];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -440,7 +443,7 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (!error) {
-        [YCHudManager showMessage:@"下载成功" InView:self.view];
+        [YCHudManager showMessage:@"保存到相册" InView:self.view];
     }
 }
 #pragma mark - 预览
