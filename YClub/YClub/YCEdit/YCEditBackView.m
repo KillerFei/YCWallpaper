@@ -23,7 +23,7 @@
         UIImage *backImg = [UIImage imageNamed:@"yc_img_back"];
         [_backBtn setImage:backImg forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(backBtnAction) forControlEvents:UIControlEventTouchUpInside];
-        _backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 40);
+        _backBtn.imageEdgeInsets = UIEdgeInsetsMake(10, -20, -10, 40);
     }
     return _backBtn;
 }
@@ -34,6 +34,7 @@
         [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_normal"] forState:UIControlStateNormal];
         [_loveBtn setImage:[UIImage imageNamed:@"yc_img_collect_selete"] forState:UIControlStateSelected];
         [_loveBtn addTarget:self action:@selector(loveBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        _loveBtn.imageEdgeInsets = UIEdgeInsetsMake(12, 17, -12, -17);
     }
     return _loveBtn;
 }
@@ -51,6 +52,7 @@
     if (self) {
         
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+        
         [self addSubview:self.backBtn];
         [self addSubview:self.loveBtn];
         [self addSubview:self.shareBtn];
@@ -81,6 +83,7 @@
 #pragma mark - loveBtnAction
 - (void)loveBtnAction
 {
+    _loveBtn.selected = !_loveBtn.selected;
     if (_delegate && [_delegate respondsToSelector:@selector(clickLoveBtn)]) {
         [_delegate clickLoveBtn];
     }

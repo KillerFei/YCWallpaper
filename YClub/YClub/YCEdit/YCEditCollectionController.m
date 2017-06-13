@@ -401,8 +401,14 @@
 }
 - (void)clickLoveBtn
 {
-    [[YCDBManager shareInstance] savePic:_currentModel];
-    [YCHudManager showMessage:@"已加入收藏" InView:self.view];
+    if ([[YCDBManager shareInstance] isExistWithPic:_currentModel]) {
+        
+        [[YCDBManager shareInstance] deletePic:_currentModel];
+        [YCHudManager showMessage:@"取消成功" InView:self.view];
+    } else {
+        [[YCDBManager shareInstance] savePic:_currentModel];
+        [YCHudManager showMessage:@"收藏成功" InView:self.view];
+    }
 }
 #pragma mark - YCEditDownViewDelegate
 - (void)clickDownBtn

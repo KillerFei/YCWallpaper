@@ -56,10 +56,8 @@
     hud.bezelView.color = [UIColor blackColor];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;
-//    hud.detailsLabel.textColor = [UIColor whiteColor];
-//    hud.label.textColor        = [UIColor whiteColor];
-    hud.detailsLabel.textColor = YC_TabBar_SeleteColor;
-    hud.label.textColor        = YC_TabBar_SeleteColor;
+    hud.detailsLabel.textColor = [UIColor whiteColor];
+    hud.label.textColor        = [UIColor whiteColor];
     [view addSubview:hud];
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2];
