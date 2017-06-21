@@ -23,6 +23,7 @@
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
     //hud.bezelView.color = [UIColor blackColor];
     hud.mode = MBProgressHUDModeIndeterminate;
+    hud.removeFromSuperViewOnHide = YES;
     //设置转轮颜色
     //[UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = ;
     [view addSubview:hud];
@@ -53,6 +54,7 @@
         return;
     }
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
+    hud.removeFromSuperViewOnHide = YES;
     hud.bezelView.color = [UIColor blackColor];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text = message;

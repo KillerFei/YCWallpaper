@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 target ‘YClub’ do
 pod 'FMDB'
+pod 'JPush'
 pod 'Masonry'
 pod 'MJRefresh'
 pod 'MJExtension’

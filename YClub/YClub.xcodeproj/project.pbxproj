@@ -24,7 +24,6 @@
 		FB341E1E1EB393EC008A4199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E1D1EB393EC008A4199 /* main.m */; };
 		FB341E211EB393EC008A4199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E201EB393EC008A4199 /* AppDelegate.m */; };
 		FB341E291EB393EC008A4199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB341E281EB393EC008A4199 /* Assets.xcassets */; };
-		FB341E2C1EB393EC008A4199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB341E2A1EB393EC008A4199 /* LaunchScreen.storyboard */; };
 		FB341E521EB39436008A4199 /* YCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E511EB39436008A4199 /* YCBaseViewController.m */; };
 		FB341E631EB39B01008A4199 /* YCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E621EB39B01008A4199 /* YCBaseNavigationController.m */; };
 		FB341E681EB39BA6008A4199 /* YCBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341E671EB39BA6008A4199 /* YCBaseTabBarController.m */; };
@@ -160,7 +159,6 @@
 		FB341E1F1EB393EC008A4199 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB341E201EB393EC008A4199 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB341E281EB393EC008A4199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FB341E2B1EB393EC008A4199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB341E2D1EB393EC008A4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB341E361EB393EC008A4199 /* YClubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YClubTests.m; sourceTree = "<group>"; };
 		FB341E381EB393EC008A4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +205,7 @@
 		FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCDBManager.m; sourceTree = "<group>"; };
 		FBAC2E7D1ECBEAC400AD4E26 /* YCCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCollectViewController.h; sourceTree = "<group>"; };
 		FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCollectViewController.m; sourceTree = "<group>"; };
+		FBC183491EFA516000F48C6B /* YClub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YClub.entitlements; sourceTree = "<group>"; };
 		FBE4CC741EC1780F008D1652 /* YCSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSearchTableViewCell.h; sourceTree = "<group>"; };
 		FBE4CC751EC1780F008D1652 /* YCSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSearchTableViewCell.m; sourceTree = "<group>"; };
 		FBE4CC771EC1951B008D1652 /* yc_search_hotBtn_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yc_search_hotBtn_blue@2x.png"; sourceTree = "<group>"; };
@@ -392,6 +391,7 @@
 		FB341E1B1EB393EC008A4199 /* YClub */ = {
 			isa = PBXGroup;
 			children = (
+				FBC183491EFA516000F48C6B /* YClub.entitlements */,
 				FBEBD6AF1EC1F7C500014F81 /* NFMenu */,
 				FBEEEF641EB665D500DE5471 /* YCEdit */,
 				FBED03301EB45A3B00BEEA75 /* YCType */,
@@ -403,7 +403,6 @@
 				FB341E1F1EB393EC008A4199 /* AppDelegate.h */,
 				FB341E201EB393EC008A4199 /* AppDelegate.m */,
 				FB341E281EB393EC008A4199 /* Assets.xcassets */,
-				FB341E2A1EB393EC008A4199 /* LaunchScreen.storyboard */,
 				FB341E2D1EB393EC008A4199 /* Info.plist */,
 				FB341E1C1EB393EC008A4199 /* Supporting Files */,
 			);
@@ -792,7 +791,12 @@
 					FB341E181EB393EC008A4199 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4A6RCSK759;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -832,7 +836,6 @@
 				FBED03AD1EB5168F00BEEA75 /* yc_loading_20@2x.png in Resources */,
 				FBEF5FFF1EBA111300C5D983 /* yc_img_share@2x.png in Resources */,
 				FBE4CC7B1EC1951C008D1652 /* yc_search_hotBtn_blue@2x.png in Resources */,
-				FB341E2C1EB393EC008A4199 /* LaunchScreen.storyboard in Resources */,
 				FBED03921EB514FF00BEEA75 /* yc_loading_03@2x.png in Resources */,
 				FBE4CC7C1EC1951C008D1652 /* yc_search_hotBtn_blue@3x.png in Resources */,
 				FB298D441EE8F78C0004F869 /* nf_menu_support@3x.png in Resources */,
@@ -922,7 +925,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EF721F64B8A95E5E6C7E5B3B /* [CP] Embed Pods Frameworks */ = {
@@ -1009,17 +1012,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FB341E2A1EB393EC008A4199 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB341E2B1EB393EC008A4199 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FB341E441EB393EC008A4199 /* Debug */ = {
@@ -1117,14 +1109,18 @@
 			baseConfigurationReference = 0081816E5F5B0E86654B6669 /* Pods-YClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f6f5cb37-d6d2-4fb3-baf8-5bc9b688d452";
+				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-de";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1134,14 +1130,18 @@
 			baseConfigurationReference = 1B4DF555FE770C2E5B283C6B /* Pods-YClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fly.YCWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cfeadeba-5ee3-4d96-9fa5-a29bf94dd84a";
+				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-p";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

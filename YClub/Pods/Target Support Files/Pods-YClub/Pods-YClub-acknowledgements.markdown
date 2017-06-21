@@ -107,6 +107,14 @@ SOFTWARE.
 
 
 
+## JCore
+
+Copyright jpush.cn
+
+## JPush
+
+Copyright jpush.cn
+
 ## MBProgressHUD
 
 Copyright © 2009-2016 Matej Bukovinski
