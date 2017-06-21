@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layOut;
 @property (nonatomic, strong) NSIndexPath      *indexPath;
 @property (nonatomic, strong) UIView           *noResultView;
+@property (nonatomic, strong) UIImageView      *noResultImaV;
 @property (nonatomic, assign) CGFloat          lastOffSetY;
 @property (nonatomic, assign) CGFloat          lastOffSetX;
 

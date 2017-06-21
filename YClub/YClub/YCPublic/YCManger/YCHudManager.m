@@ -62,7 +62,7 @@
     hud.label.textColor        = [UIColor whiteColor];
     [view addSubview:hud];
     [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:2];
+    [hud hideAnimated:YES afterDelay:1];
 }
 + (void)hideHudInView:(UIView *)view
 {

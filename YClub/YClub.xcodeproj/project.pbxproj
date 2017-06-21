@@ -41,6 +41,13 @@
 		FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */; };
 		FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */; };
 		FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */; };
+		FBA2441C1EFAB6FB00021221 /* yc_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA2441B1EFAB6FB00021221 /* yc_icon.png */; };
+		FBA244261EFAB9DC00021221 /* nf_menu_collect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA244251EFAB9DC00021221 /* nf_menu_collect@3x.png */; };
+		FBA244281EFABA0000021221 /* nf_menu_collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA244271EFABA0000021221 /* nf_menu_collect@2x.png */; };
+		FBA2442B1EFACDC100021221 /* YCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA2442A1EFACDC100021221 /* YCCollectionViewCell.m */; };
+		FBA244321EFAD14200021221 /* nf_love_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA244301EFAD14200021221 /* nf_love_delete@2x.png */; };
+		FBA244331EFAD14200021221 /* nf_love_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA244311EFAD14200021221 /* nf_love_delete@3x.png */; };
+		FBA244351EFAD15500021221 /* nf_noLiked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA244341EFAD15500021221 /* nf_noLiked@2x.png */; };
 		FBAC2E7C1ECBE43500AD4E26 /* YCDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */; };
 		FBAC2E7F1ECBEAC400AD4E26 /* YCCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */; };
 		FBE4CC761EC1780F008D1652 /* YCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE4CC751EC1780F008D1652 /* YCSearchTableViewCell.m */; };
@@ -201,6 +208,14 @@
 		FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
 		FB8B11031EC01F310005110C /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
 		FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		FBA2441B1EFAB6FB00021221 /* yc_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yc_icon.png; sourceTree = "<group>"; };
+		FBA244251EFAB9DC00021221 /* nf_menu_collect@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nf_menu_collect@3x.png"; sourceTree = "<group>"; };
+		FBA244271EFABA0000021221 /* nf_menu_collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nf_menu_collect@2x.png"; sourceTree = "<group>"; };
+		FBA244291EFACDC100021221 /* YCCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCollectionViewCell.h; sourceTree = "<group>"; };
+		FBA2442A1EFACDC100021221 /* YCCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCollectionViewCell.m; sourceTree = "<group>"; };
+		FBA244301EFAD14200021221 /* nf_love_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nf_love_delete@2x.png"; sourceTree = "<group>"; };
+		FBA244311EFAD14200021221 /* nf_love_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nf_love_delete@3x.png"; sourceTree = "<group>"; };
+		FBA244341EFAD15500021221 /* nf_noLiked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nf_noLiked@2x.png"; sourceTree = "<group>"; };
 		FBAC2E7A1ECBE43500AD4E26 /* YCDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCDBManager.h; sourceTree = "<group>"; };
 		FBAC2E7B1ECBE43500AD4E26 /* YCDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCDBManager.m; sourceTree = "<group>"; };
 		FBAC2E7D1ECBEAC400AD4E26 /* YCCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCollectViewController.h; sourceTree = "<group>"; };
@@ -475,6 +490,12 @@
 		FB341E571EB394BC008A4199 /* YCResource */ = {
 			isa = PBXGroup;
 			children = (
+				FBA244341EFAD15500021221 /* nf_noLiked@2x.png */,
+				FBA244301EFAD14200021221 /* nf_love_delete@2x.png */,
+				FBA244311EFAD14200021221 /* nf_love_delete@3x.png */,
+				FBA2441B1EFAB6FB00021221 /* yc_icon.png */,
+				FBA244271EFABA0000021221 /* nf_menu_collect@2x.png */,
+				FBA244251EFAB9DC00021221 /* nf_menu_collect@3x.png */,
 				FB298D3B1EE8F78C0004F869 /* nf_menu_clear@2x.png */,
 				FB298D3C1EE8F78C0004F869 /* nf_menu_clear@3x.png */,
 				FB298D3D1EE8F78C0004F869 /* nf_menu_support@2x.png */,
@@ -611,6 +632,8 @@
 				FBEBD6B71EC1F7C500014F81 /* NFMenuViewController.m */,
 				FBAC2E7D1ECBEAC400AD4E26 /* YCCollectViewController.h */,
 				FBAC2E7E1ECBEAC400AD4E26 /* YCCollectViewController.m */,
+				FBA244291EFACDC100021221 /* YCCollectionViewCell.h */,
+				FBA2442A1EFACDC100021221 /* YCCollectionViewCell.m */,
 			);
 			path = NFMenu;
 			sourceTree = "<group>";
@@ -791,7 +814,7 @@
 					FB341E181EB393EC008A4199 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4A6RCSK759;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -837,11 +860,13 @@
 				FBEF5FFF1EBA111300C5D983 /* yc_img_share@2x.png in Resources */,
 				FBE4CC7B1EC1951C008D1652 /* yc_search_hotBtn_blue@2x.png in Resources */,
 				FBED03921EB514FF00BEEA75 /* yc_loading_03@2x.png in Resources */,
+				FBA2441C1EFAB6FB00021221 /* yc_icon.png in Resources */,
 				FBE4CC7C1EC1951C008D1652 /* yc_search_hotBtn_blue@3x.png in Resources */,
 				FB298D441EE8F78C0004F869 /* nf_menu_support@3x.png in Resources */,
 				FBEF5FFC1EBA111300C5D983 /* yc_img_download@3x.png in Resources */,
 				FBE4CC7D1EC1951C008D1652 /* yc_search_hotBtn_red@2x.png in Resources */,
 				FBED039A1EB514FF00BEEA75 /* yc_loading_11@2x.png in Resources */,
+				FBA244351EFAD15500021221 /* nf_noLiked@2x.png in Resources */,
 				FBFF0FC71EC3649B007D76EC /* arrow@2x.png in Resources */,
 				FBED034D1EB4FDF600BEEA75 /* yc_type_tabbar_normal@3x.png in Resources */,
 				FBED03861EB513EA00BEEA75 /* yc_loading_01@2x.png in Resources */,
@@ -862,9 +887,11 @@
 				FBED03971EB514FF00BEEA75 /* yc_loading_08@2x.png in Resources */,
 				FB341E291EB393EC008A4199 /* Assets.xcassets in Resources */,
 				FBED03911EB514FF00BEEA75 /* yc_loading_02@2x.png in Resources */,
+				FBA244261EFAB9DC00021221 /* nf_menu_collect@3x.png in Resources */,
 				FBED036A1EB5042500BEEA75 /* yc_main_tabbar_normal@2x.png in Resources */,
 				FBECD14B1EBF0FA50060F2A2 /* yc_home_568h@2x.png in Resources */,
 				FB298D531EE8FBE20004F869 /* yc_img_collect_selete@2x.png in Resources */,
+				FBA244331EFAD14200021221 /* nf_love_delete@3x.png in Resources */,
 				FB298D411EE8F78C0004F869 /* nf_menu_clear@2x.png in Resources */,
 				FBEF5FF61EBA111300C5D983 /* yc_img_back@3x.png in Resources */,
 				FBED03A61EB5168F00BEEA75 /* yc_loading_13@2x.png in Resources */,
@@ -872,11 +899,13 @@
 				FBEEEF581EB63A3700DE5471 /* yc_no_result@2x.png in Resources */,
 				FBF2F26E1EC090EF008C1F6B /* yc_nav_search@3x.png in Resources */,
 				FBED03711EB506D300BEEA75 /* yc_my_tabbar_selete@2x.png in Resources */,
+				FBA244321EFAD14200021221 /* nf_love_delete@2x.png in Resources */,
 				FBED03991EB514FF00BEEA75 /* yc_loading_10@2x.png in Resources */,
 				FBECD14C1EBF0FA50060F2A2 /* yc_home_667h@2x.png in Resources */,
 				FB23486B1ED94730001ECB3C /* yc_nav_back.png in Resources */,
 				FBED03A71EB5168F00BEEA75 /* yc_loading_14@2x.png in Resources */,
 				FBED036B1EB5042500BEEA75 /* yc_main_tabbar_normal@3x.png in Resources */,
+				FBA244281EFABA0000021221 /* nf_menu_collect@2x.png in Resources */,
 				FBED03491EB4FD6000BEEA75 /* yc_type_tabbar_normal@2x.png in Resources */,
 				FBED03471EB4FD5600BEEA75 /* yc_type_tabbar_selete@2x.png in Resources */,
 				FBED03951EB514FF00BEEA75 /* yc_loading_06@2x.png in Resources */,
@@ -972,6 +1001,7 @@
 				FBFF0FCC1EC3649B007D76EC /* PSNormalRefreshHeader.m in Sources */,
 				FBEEEFF01EB671F900DE5471 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				FBFF0FCD1EC3649B007D76EC /* UIScrollView+PSRefresh.m in Sources */,
+				FBA2442B1EFACDC100021221 /* YCCollectionViewCell.m in Sources */,
 				FBEEEFF61EB671F900DE5471 /* WXSTransitionProperty.m in Sources */,
 				FB341E7F1EB3ADAF008A4199 /* YCNetManager.m in Sources */,
 				FB341E1E1EB393EC008A4199 /* main.m in Sources */,
@@ -1119,8 +1149,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6f5cb37-d6d2-4fb3-baf8-5bc9b688d452";
-				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-de";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1132,7 +1162,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1140,8 +1170,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfeadeba-5ee3-4d96-9fa5-a29bf94dd84a";
-				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-p";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

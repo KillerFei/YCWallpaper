@@ -17,8 +17,6 @@
 - (BOOL)deletePic:(YCBaseModel *)pic;
 // 获取
 - (NSArray *)getAllPics;
-// 查询
-- (BOOL)isExistWithPic:(YCBaseModel *)pic;
 
 
 + (void)runBlockInBackground:(void (^)())block;

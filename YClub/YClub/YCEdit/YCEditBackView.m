@@ -83,9 +83,12 @@
 #pragma mark - loveBtnAction
 - (void)loveBtnAction
 {
-    _loveBtn.selected = !_loveBtn.selected;
     if (_delegate && [_delegate respondsToSelector:@selector(clickLoveBtn)]) {
         [_delegate clickLoveBtn];
     }
+}
+- (void)setLoveBtnSelete:(BOOL)selete
+{
+    _loveBtn.selected = selete;
 }
 @end

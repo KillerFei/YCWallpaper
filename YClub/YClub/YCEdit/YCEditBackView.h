@@ -18,4 +18,6 @@
 
 @property (nonatomic, assign) id<YCEditBackViewDelegate> delegate;
 
+- (void)setLoveBtnSelete:(BOOL)selete;
+
 @end

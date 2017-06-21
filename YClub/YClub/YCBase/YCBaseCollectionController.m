@@ -30,10 +30,10 @@
 {
     if (!_noResultView) {
         _noResultView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT-64)];
-        UIImageView *noReultImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yc_no_result"]];
-        noReultImg.center = CGPointMake(KSCREEN_WIDTH/2, (KSCREEN_HEIGHT-204)/2);
-        noReultImg.userInteractionEnabled = YES;
-        [_noResultView addSubview:noReultImg];
+        _noResultImaV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yc_no_result"]];
+        _noResultImaV.center = CGPointMake(KSCREEN_WIDTH/2, (KSCREEN_HEIGHT-204)/2);
+        _noResultImaV.userInteractionEnabled = YES;
+        [_noResultView addSubview:_noResultImaV];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
         [_noResultView addGestureRecognizer:tap];
     }

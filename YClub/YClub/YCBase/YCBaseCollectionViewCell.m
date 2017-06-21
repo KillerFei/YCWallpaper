@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) YCBaseModel *pic;
-
 @end
 
 @implementation YCBaseCollectionViewCell
@@ -55,31 +54,7 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    _pic            = nil;
+    _pic = nil;
     _imageView.image   = nil;
-}
-#pragma mark - 长按删除状态
-- (void)setUpLongGes
-{
-    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGesAction:)];
-    [self.contentView addGestureRecognizer:longGes];
-}
-- (void)longGesAction:(UILongPressGestureRecognizer *)ges
-{
-    if(ges.state == UIGestureRecognizerStateBegan) {
-        if (_delegate && [_delegate respondsToSelector:@selector(beginDeleteState)]) {
-            [_delegate beginDeleteState];
-        }
-    }
-}
-#pragma mark - 删除动作
-- (void)deleteAction
-{
-    if (kObjectIsEmpty(_pic) || kObjectIsEmpty(_indexPath)) {
-        return;
-    }
-    if (_delegate && [_delegate respondsToSelector:@selector(deletePic:atIndexpath:)]) {
-        [_delegate deletePic:_pic atIndexpath:_indexPath];
-    }
 }
 @end

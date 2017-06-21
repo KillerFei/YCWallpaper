@@ -36,7 +36,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
         _myTableView.backgroundColor = YC_Base_BgGrayColor;
         _myTableView.separatorColor = YC_Base_LineColor;
         [_myTableView registerClass:[NFMenuTableViewCell class] forCellReuseIdentifier:kNFMenuCellIdentifier];
-        _myTableView.tableHeaderView = [[NFMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 160)];
+        _myTableView.tableHeaderView = [[NFMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, 180)];
         _myTableView.tableFooterView = [[UIView alloc] init];
     }
     return _myTableView;
@@ -125,7 +125,7 @@ static NSString *const kNFMenuCellIdentifier = @"myCellIdentifier";
             myCell.titleLabel.text = @"免责声明";
             break;
         case kNFMenuType_Love:
-            myCell.iconView.image = [UIImage imageNamed:@"nf_menu_declare"];
+            myCell.iconView.image = [UIImage imageNamed:@"nf_menu_collect"];
             myCell.titleLabel.text = @"我的收藏";
             break;
         default:

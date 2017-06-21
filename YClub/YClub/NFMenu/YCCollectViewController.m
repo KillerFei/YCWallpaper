@@ -7,11 +7,11 @@
 //
 
 #import "YCCollectViewController.h"
-#import "YCBaseCollectionViewCell.h"
 #import "YCEditCollectionController.h"
 #import "UIViewController+WXSTransition.h"
+#import "YCCollectionViewCell.h"
 
-@interface YCCollectViewController ()<YCBaseCollectionViewCellDelegate>
+@interface YCCollectViewController ()<YCCollectionViewCellDelegate>
 {
     BOOL _deleteFlag;
     BOOL _firstLoad;
@@ -26,9 +26,17 @@
     [self setUpCollectionView];
     [self setLeftBackNavItem];
     [self registerCell];
-    [self requestData];
     [self setUpFlag];
     [self setUpTapGes];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self requestData];
+}
+- (void)registerCell
+{
+    [self.myCollectionView registerClass:[YCCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
 }
 #pragma mark - 初始化标记
 - (void)setUpFlag
@@ -43,12 +51,12 @@
     _tapGes.enabled = NO;
     [self.view addGestureRecognizer:_tapGes];
 }
-
 - (void)requestData
 {
     [self.dataSource addObjectsFromArray:[[YCDBManager shareInstance] getAllPics]];
     if (kArrayIsEmpty(self.dataSource)) {
         [self addNoResultView];
+        self.noResultImaV.image = [UIImage imageNamed:@"nf_noLiked"];
     }
 }
 #pragma mark - collection
@@ -58,7 +66,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    YCBaseCollectionViewCell *baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    YCCollectionViewCell *baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     [baseCell setModel:self.dataSource[indexPath.item]];
     [baseCell setUpLongGes];
     [self setVisibleCell:baseCell indexPath:indexPath];
@@ -89,7 +97,7 @@
     [self exitDeleteState];
 }
 #pragma mark -  添加动画
-- (void)setVisibleCell:(YCBaseCollectionViewCell *)cell
+- (void)setVisibleCell:(YCCollectionViewCell *)cell
              indexPath:(NSIndexPath *)indexPath
 {
     cell.delegate  = self;
@@ -101,7 +109,7 @@
         [cell.layer removeAnimationForKey:@"shake"];
     }
 }
-- (void)addAnimationForCell:(YCBaseCollectionViewCell *)cell
+- (void)addAnimationForCell:(YCCollectionViewCell *)cell
 {
     CAKeyframeAnimation *rvibrateAni = [CAKeyframeAnimation animation];
     rvibrateAni.keyPath = @"transform.rotation";
@@ -139,6 +147,7 @@
             _deleteFlag = NO;
             _tapGes.enabled = NO;
             [self addNoResultView];
+            self.noResultImaV.image = [UIImage imageNamed:@"nf_noLiked"];
             [YCHudManager showMessage:@"取消收藏成功" InView:self.view];
         }
         [self.myCollectionView reloadData];

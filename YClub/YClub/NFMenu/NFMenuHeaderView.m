@@ -21,7 +21,7 @@
         _logoView = [[UIImageView alloc]init];
         _logoView.layer.masksToBounds = YES;
         _logoView.layer.cornerRadius  = 45;
-        _logoView.image = [UIImage imageNamed:@"nf_icon"];
+        _logoView.image = [UIImage imageNamed:@"yc_icon"];
         _logoView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_logoView];
         

@@ -26,6 +26,7 @@
 @property (nonatomic, strong) UITableView    *popTableView;
 @property (nonatomic, strong) UIImageView    *homeView;
 @property (nonatomic, strong) YCLockView     *lockView;
+@property (nonatomic, strong) NSMutableArray *colllectPics;
 @end
 
 @implementation YCEditCollectionController
@@ -100,6 +101,28 @@
     [self setUpCurrentModel];
     [self addRefreshNewHeader];
     [self addLoadMoreFooter];
+    [self addCollectPics];
+}
+- (void)addCollectPics
+{
+    _colllectPics = [[NSMutableArray alloc] init];
+    [_colllectPics addObjectsFromArray:[[YCDBManager shareInstance] getAllPics]];
+    [self scrollViewDidEndDecelerating:self.myCollectionView];
+}
+- (void)setUpBLove
+{
+    NSInteger index = 0;
+    for (YCBaseModel *model in _colllectPics) {
+        if ([model.thumb isEqualToString:_currentModel.thumb]) {
+            index++;
+            break;
+        }
+    }
+    if (index) {
+        [_backView setLoveBtnSelete:YES];
+    } else {
+        [_backView setLoveBtnSelete:NO];
+    }
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -293,7 +316,6 @@
     YCEditCollectionViewCell *baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     [baseCell setModel:self.dataSource[indexPath.item]];
     _currentModel     = self.dataSource[indexPath.item];
-    self.indexPath    = indexPath;
     return baseCell;
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
@@ -401,11 +423,21 @@
 }
 - (void)clickLoveBtn
 {
-    if ([[YCDBManager shareInstance] isExistWithPic:_currentModel]) {
-        
+    YCBaseModel *picModel = nil;
+    for (YCBaseModel *model in _colllectPics) {
+        if ([model.thumb isEqualToString:_currentModel.thumb]) {
+            picModel = model;
+            break;
+        }
+    }
+    if (picModel) {
+        [_backView setLoveBtnSelete:NO];
+        [_colllectPics removeObject:picModel];
         [[YCDBManager shareInstance] deletePic:_currentModel];
         [YCHudManager showMessage:@"取消成功" InView:self.view];
     } else {
+        [_backView setLoveBtnSelete:YES];
+        [_colllectPics addObject:_currentModel];
         [[YCDBManager shareInstance] savePic:_currentModel];
         [YCHudManager showMessage:@"收藏成功" InView:self.view];
     }
@@ -485,7 +517,6 @@
                      }
                      completion:nil];
 }
-
 #pragma mark - alertView Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -495,5 +526,14 @@
             [[UIApplication sharedApplication]openURL:url];
         }
     }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView != self.myCollectionView) {
+        return;
+    }
+    self.indexPath = [self.myCollectionView indexPathForItemAtPoint:[self.view convertPoint:self.myCollectionView.center toView:self.myCollectionView]];
+    _currentModel = self.dataSource[self.indexPath.item];
+    [self setUpBLove];
 }
 @end

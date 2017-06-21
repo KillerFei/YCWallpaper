@@ -90,39 +90,15 @@ static NSString *const cacheDBPath                = @"YCCache.db";
         FMResultSet * data = [db executeQuery:selectSql];
         while (data.next) {
             YCBaseModel *pic = [[YCBaseModel alloc] init];
-            pic.thumb        = [data objectForColumnName:@"thumb"];
-            pic.img          = [data objectForColumnName:@"img"];
-            pic.reserve      = [data objectForColumnName:@"reserve"];
+            pic.thumb        = [data objectForColumn:@"thumb"];
+            pic.img          = [data objectForColumn:@"img"];
+            pic.reserve      = [data objectForColumn:@"reserve"];
             [foods addObject:pic];
         }
         [data close];
     }];
     return foods;
 }
-// 查询
-- (BOOL)isExistWithPic:(YCBaseModel *)pic
-{
-    if (kStringIsEmpty(pic.thumb)) {
-        return NO;
-    }
-    __block BOOL reslut = NO;
-    NSString *selectSql = @"select count as countNum from collectPics where thumb = ?";
-    [_cacheDBQueque inDatabase:^(FMDatabase *db) {
-        
-        FMResultSet *data = [db executeQuery:selectSql, pic.thumb];
-        while (data.next) {
-           NSInteger count = [data intForColumn:@"countNum"];
-            if (count > 0) {
-                reslut = YES;
-            } else {
-                reslut = NO;
-            }
-        }
-        [data close];
-    }];
-    return reslut;
-}
-
 + (void)runBlockInBackground:(void (^)())block
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
