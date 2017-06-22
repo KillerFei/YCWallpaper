@@ -84,7 +84,6 @@
 {
     if (indexPath.item == self.dataSource.count-6 && self.scrollBottom && !self.loading)
     {
-        self.loading = YES;
         [self loadMoreData];
     }
 }

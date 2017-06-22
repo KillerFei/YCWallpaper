@@ -15,7 +15,6 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
-#import <AdSupport/AdSupport.h>
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 
@@ -51,11 +50,10 @@
     
     //初始化JPush
     //获取IDFA
-    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     [JPUSHService setupWithOption:launchOptions appKey:@"bb18cb7d9f580ee1fadd91da"
-                          channel:@"test"
+                          channel:@"AppStore"
                  apsForProduction:YES
-            advertisingIdentifier:advertisingId];
+            advertisingIdentifier:nil];
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {

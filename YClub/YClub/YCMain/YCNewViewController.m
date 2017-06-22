@@ -13,6 +13,7 @@
 
 @implementation YCNewViewController
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setUpLayOut];
     [self setUpCollectionView];
@@ -23,6 +24,17 @@
     [self registerCell];
     [self requestData];
     [self addRefreshHeader];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.bEdit) {
+        [self.myCollectionView reloadData];
+        if (!kObjectIsEmpty(self.indexPath)) {
+            [self.myCollectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        }
+        self.bEdit = NO;
+    }
 }
 - (void)requestData
 {

@@ -814,8 +814,11 @@
 					FB341E181EB393EC008A4199 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4A6RCSK759;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1149,8 +1152,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f6f5cb37-d6d2-4fb3-baf8-5bc9b688d452";
+				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-de";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1162,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 4A6RCSK759;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1170,8 +1173,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "cfeadeba-5ee3-4d96-9fa5-a29bf94dd84a";
+				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-p";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
