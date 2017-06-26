@@ -38,6 +38,7 @@
 		FB341EC21EB3B764008A4199 /* YCNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341EC11EB3B764008A4199 /* YCNewViewController.m */; };
 		FB341EC51EB3B995008A4199 /* YCBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341EC41EB3B995008A4199 /* YCBaseCollectionViewCell.m */; };
 		FB341EC81EB3C241008A4199 /* YCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB341EC71EB3C241008A4199 /* YCBaseModel.m */; };
+		FB4DFEB41F00B52B007F610E /* YCCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DFEB31F00B52B007F610E /* YCCheckViewController.m */; };
 		FB6E0B0F1EBADD3E00B99AF0 /* YCLookPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */; };
 		FB6E0B3E1EBB055300B99AF0 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0B3C1EBB055300B99AF0 /* DXPopover.m */; };
 		FB8B11051EC01F310005110C /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8B11041EC01F310005110C /* MMMaterialDesignSpinner.m */; };
@@ -202,6 +203,8 @@
 		FB341EC41EB3B995008A4199 /* YCBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBaseCollectionViewCell.m; sourceTree = "<group>"; };
 		FB341EC61EB3C241008A4199 /* YCBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBaseModel.h; sourceTree = "<group>"; };
 		FB341EC71EB3C241008A4199 /* YCBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBaseModel.m; sourceTree = "<group>"; };
+		FB4DFEB21F00B52B007F610E /* YCCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCheckViewController.h; sourceTree = "<group>"; };
+		FB4DFEB31F00B52B007F610E /* YCCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCheckViewController.m; sourceTree = "<group>"; };
 		FB6E0B0D1EBADD3E00B99AF0 /* YCLookPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLookPopView.h; sourceTree = "<group>"; };
 		FB6E0B0E1EBADD3E00B99AF0 /* YCLookPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLookPopView.m; sourceTree = "<group>"; };
 		FB6E0B3B1EBB055300B99AF0 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
@@ -407,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC183491EFA516000F48C6B /* YClub.entitlements */,
+				FB4DFEB11F00B510007F610E /* YCCheck */,
 				FBEBD6AF1EC1F7C500014F81 /* NFMenu */,
 				FBEEEF641EB665D500DE5471 /* YCEdit */,
 				FBED03301EB45A3B00BEEA75 /* YCType */,
@@ -608,6 +612,15 @@
 				FB341EC11EB3B764008A4199 /* YCNewViewController.m */,
 			);
 			path = YCMain;
+			sourceTree = "<group>";
+		};
+		FB4DFEB11F00B510007F610E /* YCCheck */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DFEB21F00B52B007F610E /* YCCheckViewController.h */,
+				FB4DFEB31F00B52B007F610E /* YCCheckViewController.m */,
+			);
+			path = YCCheck;
 			sourceTree = "<group>";
 		};
 		FB6E0B391EBB055300B99AF0 /* DXPop */ = {
@@ -814,7 +827,7 @@
 					FB341E181EB393EC008A4199 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4A6RCSK759;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1009,6 +1022,7 @@
 				FB341E7F1EB3ADAF008A4199 /* YCNetManager.m in Sources */,
 				FB341E1E1EB393EC008A4199 /* main.m in Sources */,
 				FBEEEFEF1EB671F900DE5471 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				FB4DFEB41F00B52B007F610E /* YCCheckViewController.m in Sources */,
 				FBED03331EB45AFC00BEEA75 /* YCTypeViewController.m in Sources */,
 				FBEEEFE81EB671F900DE5471 /* UIViewController+WXSTransition.m in Sources */,
 				FB341E631EB39B01008A4199 /* YCBaseNavigationController.m in Sources */,
@@ -1145,15 +1159,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4A6RCSK759;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6f5cb37-d6d2-4fb3-baf8-5bc9b688d452";
-				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-de";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1165,16 +1179,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = YClub/YClub.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 4A6RCSK759;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YClub/YCConfig/PrefixHeader_YC.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoduo.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfeadeba-5ee3-4d96-9fa5-a29bf94dd84a";
-				PROVISIONING_PROFILE_SPECIFIER = "wallpaper-p";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

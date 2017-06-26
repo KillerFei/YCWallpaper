@@ -16,4 +16,6 @@
 
 + (void)gotoJudge;
 
++ (BOOL)isOnCheck;
+
 @end

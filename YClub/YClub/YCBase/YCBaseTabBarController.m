@@ -11,6 +11,7 @@
 #import "YCMainViewController.h"
 #import "YCTypeViewController.h"
 #import "NFMenuViewController.h"
+#import "YCCheckViewController.h"
 
 
 @interface YCBaseTabBarController ()
@@ -27,16 +28,30 @@
 #pragma mark - add ChildControllers
 - (void)setUpChildVC
 {
-    YCMainViewController *mainVC = [[YCMainViewController alloc] init];
-    YCBaseNavigationController *mainNav = [[YCBaseNavigationController alloc] initWithRootViewController:mainVC];
-    
-    YCTypeViewController *typeVC = [[YCTypeViewController alloc] init];
-    YCBaseNavigationController *typeNav = [[YCBaseNavigationController alloc] initWithRootViewController:typeVC];
-    
     NFMenuViewController *thirdVC = [[NFMenuViewController alloc] init];
     YCBaseNavigationController *thirdNav = [[YCBaseNavigationController alloc] initWithRootViewController:thirdVC];
     thirdVC.title = @"我的";
-    self.viewControllers = @[mainNav, typeNav, thirdNav];
+    if ([YCToolManager isOnCheck]) {
+        
+        YCCheckViewController *mainCheckVC = [[YCCheckViewController alloc] init];
+        YCBaseNavigationController *mainCheckNav = [[YCBaseNavigationController alloc] initWithRootViewController:mainCheckVC];
+        mainCheckVC.tid   = @"4e4d610cdf714d2966000002";
+        mainCheckVC.title = @"风景";
+        
+        YCCheckViewController *typeCheckVC = [[YCCheckViewController alloc] init];
+        YCBaseNavigationController *typeCheckNav = [[YCBaseNavigationController alloc] initWithRootViewController:typeCheckVC];
+        typeCheckVC.tid   = @"4ef0a3330569795757000000";
+        typeCheckVC.title = @"艺术";
+        self.viewControllers = @[mainCheckNav, typeCheckNav, thirdNav];
+    } else {
+        
+        YCMainViewController *mainVC = [[YCMainViewController alloc] init];
+        YCBaseNavigationController *mainNav = [[YCBaseNavigationController alloc] initWithRootViewController:mainVC];
+        
+        YCTypeViewController *typeVC = [[YCTypeViewController alloc] init];
+        YCBaseNavigationController *typeNav = [[YCBaseNavigationController alloc] initWithRootViewController:typeVC];
+        self.viewControllers = @[mainNav, typeNav, thirdNav];
+    }
 }
 #pragma mark - set TabbarItems
 - (void)setUpTabBarItems
@@ -45,8 +60,15 @@
     UITabBarItem *firstItem     = [itemArr objectAtIndex:0];
     UITabBarItem *secondItem    = [itemArr objectAtIndex:1];
     UITabBarItem *thirdItem     = [itemArr objectAtIndex:2];
-    firstItem.title = @"首页";
-    secondItem.title = @"分类";
+    
+    if ([YCToolManager isOnCheck]) {
+        
+        firstItem.title = @"风景";
+        secondItem.title = @"艺术";
+    } else {
+        firstItem.title = @"首页";
+        secondItem.title = @"分类";
+    }
     firstItem.image = [[UIImage imageNamed:@"yc_main_tabbar_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     firstItem.selectedImage = [[UIImage imageNamed:@"yc_main_tabbar_selete"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     

@@ -57,4 +57,21 @@
     [[NSUserDefaults standardUserDefaults] setObject:version forKey:kYCVersionCommentKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
++ (BOOL)isOnCheck
+{
+    NSDate *currentDate = [NSDate date];
+    // 日期字符串
+    NSString *endDateStr = @"2017-06-28 18:00:00";
+    // 转化成NSDate
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *endDate = [dateFormatter dateFromString:endDateStr];
+    // 判断
+    if ([currentDate compare:endDate] == NSOrderedAscending) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

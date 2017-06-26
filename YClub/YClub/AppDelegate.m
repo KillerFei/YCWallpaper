@@ -47,8 +47,6 @@
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
     entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
-    
-    //初始化JPush
     //获取IDFA
     [JPUSHService setupWithOption:launchOptions appKey:@"bb18cb7d9f580ee1fadd91da"
                           channel:@"AppStore"

@@ -22,6 +22,9 @@
 #define kYCReadFoodCount          @"readFoodCount"
 #define kYCEditLoadingNoti        @"editLoadingNoti"
 
+// 在线参数
+#define kYCForAppstoreOnlineKey   @"ycForAppstoreOnlineKey"
+
 //----------------------UI类--------------------------
 //RGB颜色
 #define RGBA(r,g,b,a)              [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
